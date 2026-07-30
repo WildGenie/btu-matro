@@ -3,11 +3,24 @@ import { url } from '../lib/utils';
 
 interface Props {
   class?: string;
-  showText?: boolean;
   /** Rozet boyutu (px) */
   size?: number;
+  /** "MATRO" yazısı ve altındaki satır gösterilsin mi? */
+  showText?: boolean;
+  /**
+   * MATRO yazısının altındaki satır. Boş bırakılırsa hiç gösterilmez.
+   * Satır sonu için \n kullanın.
+   */
+  subtitle?: string;
 }
-const { class: className = '', showText = true, size = 40 } = Astro.props;
+const {
+  class: className = '',
+  size = 40,
+  showText = true,
+  subtitle = 'Makine Teknolojileri\nRobot ve Otomasyon Topluluğu',
+} = Astro.props;
+
+const subtitleLines = subtitle ? subtitle.split('\n') : [];
 ---
 
 <span class={`inline-flex items-center gap-2.5 ${className}`}>
@@ -25,9 +38,13 @@ const { class: className = '', showText = true, size = 40 } = Astro.props;
     showText && (
       <span class="flex flex-col leading-none">
         <span class="text-[1.05rem] font-bold tracking-tight text-mist-100">MATRO</span>
-        <span class="mt-1 font-mono text-[0.55rem] tracking-[0.18em] text-mist-500 uppercase">
-          BTÜ · Est. 2013
-        </span>
+        {subtitleLines.length > 0 && (
+          <span class="mt-1 flex flex-col gap-[2px] text-[0.5rem] leading-[1.25] font-medium tracking-[0.1em] text-mist-500 uppercase">
+            {subtitleLines.map((line) => (
+              <span>{line}</span>
+            ))}
+          </span>
+        )}
       </span>
     )
   }
