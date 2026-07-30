@@ -1,6 +1,14 @@
 {
-  "intro": "Topluluğumuz 2020-2024 yılları arasında 32 takımı ile ilk 10'a girmiş, 258 yarışmacı ile finalist olmuş ve toplamda 21'den fazla derece ve özel ödül kazanmıştır.",
+  "intro": "Topluluğumuz 2019'dan bu yana TEKNOFEST başta olmak üzere ulusal ve uluslararası yarışmalarda 30'dan fazla derece ve özel ödül kazandı; 32 takımı ile ilk 10'a girdi ve 258 yarışmacı ile finalist oldu.",
   "items": [
+    {
+      "year": 2025,
+      "competition": "TEKNOFEST",
+      "category": "İnsansız Kara Aracı",
+      "degree": "Türkiye 3.sü",
+      "team": "MATROVER",
+      "featured": true
+    },
     {
       "year": 2024,
       "competition": "NASA Space Apps Challenge",

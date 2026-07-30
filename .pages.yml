@@ -23,7 +23,7 @@ settings:
 content:
   # ---------- SAYFALAR ----------
   - name: home
-    label: 🏠 Anasayfa
+    label: Anasayfa
     type: file
     path: src/data/home.json
     format: json
@@ -94,7 +94,7 @@ content:
           - { name: description, label: Açıklama, type: text }
 
   - name: about
-    label: ℹ️ Hakkımızda
+    label: Hakkımızda
     type: file
     path: src/data/about.json
     format: json
@@ -130,7 +130,7 @@ content:
           - { name: description, label: Açıklama, type: text }
 
   - name: achievements
-    label: 🏆 Başarılarımız
+    label: Başarılarımız
     type: file
     path: src/data/achievements.json
     format: json
@@ -155,7 +155,7 @@ content:
             default: false
 
   - name: activities
-    label: 🎓 Faaliyetlerimiz
+    label: Faaliyetlerimiz
     type: collection
     path: src/content/activities
     format: yaml-frontmatter
@@ -210,8 +210,118 @@ content:
         label: Detaylar
         type: rich-text
 
+  - name: haberler
+    label: Haberler ve Duyurular
+    type: collection
+    path: src/content/haberler
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, type, date, draft]
+      primary: title
+      sort: [date, title]
+    fields:
+      - { name: title, label: Başlık, type: string, required: true }
+      - name: type
+        label: Tür
+        type: select
+        options:
+          values: [Haber, Duyuru, Başvuru, Etkinlik, Başarı, Teknik Gezi, Sponsorluk]
+        default: Haber
+      - name: date
+        label: Tarih
+        type: date
+        options:
+          format: yyyy-MM-dd
+        required: true
+      - name: draft
+        label: Taslak (sitede görünmez)
+        type: boolean
+        default: false
+        description: İşaretliyken içerik sitede hiç görünmez. Yayınlamak için işareti kaldırın.
+      - name: pinned
+        label: Anasayfada öne çıkar
+        type: boolean
+        default: false
+        description: Başvuru gibi süreli duyurularda kullanın; anasayfanın üstünde şerit olarak görünür.
+      - name: expiresOn
+        label: Son gösterim tarihi (opsiyonel)
+        type: date
+        options:
+          format: yyyy-MM-dd
+        description: Bu tarih geçince içerik sitede görünmez olur. Süresiz içerikler için boş bırakın.
+      - { name: image, label: Kapak görseli, type: image }
+      - name: summary
+        label: Kısa özet
+        type: text
+        description: Kartlarda görünen 1-2 cümlelik özet.
+      - { name: link, label: Bağlantı (form, kayıt vb.), type: string }
+      - { name: linkLabel, label: Bağlantı buton yazısı, type: string }
+      - name: body
+        label: İçerik
+        type: rich-text
+
+  - name: ekibimiz
+    label: Ekibimiz
+    type: file
+    path: src/data/ekibimiz.json
+    format: json
+    fields:
+      - name: hero
+        label: Sayfa Girişi
+        type: object
+        fields:
+          - { name: eyebrow, label: Üst etiket, type: string }
+          - { name: title, label: Başlık, type: string }
+          - { name: description, label: Açıklama, type: text }
+      - { name: boardIntro, label: Yönetim kurulu giriş metni, type: text }
+      - name: boardTeams
+        label: Yönetim Kurulu Ekipleri
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: name, label: Ekip adı, type: string, required: true }
+          - { name: description, label: Görev tanımı, type: text }
+      - name: groupOrder
+        label: Grup sıralaması
+        type: string
+        list:
+          collapsible: true
+        description: Kişiler bu sırayla gruplanır. Buradaki adlar, aşağıdaki "Ekip" alanıyla birebir aynı yazılmalıdır.
+      - name: people
+        label: Kişiler
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: name, label: Ad Soyad, type: string, required: true }
+          - name: role
+            label: Görev
+            type: string
+            description: "Örn: Topluluk Başkanı, Ekip Yöneticisi, Takım Kaptanı"
+          - name: group
+            label: Ekip
+            type: select
+            options:
+              values:
+                - Danışman
+                - Başkanlık
+                - Atölye Ekibi
+                - Sponsorluk Ekibi
+                - Organizasyon Ekibi
+                - Sosyal Medya Ekibi
+                - Takım Kaptanları
+          - { name: photo, label: Fotoğraf, type: image }
+          - name: order
+            label: Sıralama
+            type: number
+            default: 99
+            description: Küçük sayı önce görünür.
+          - { name: linkedin, label: LinkedIn bağlantısı, type: string }
+
   - name: teams
-    label: 🤖 Takımlarımız
+    label: Takımlarımız
     type: collection
     path: src/content/teams
     format: yaml-frontmatter
@@ -260,7 +370,7 @@ content:
         type: rich-text
 
   - name: sponsors
-    label: 🤝 Sponsorlar
+    label: Sponsorlar
     type: file
     path: src/data/sponsors.json
     format: json
@@ -302,7 +412,7 @@ content:
           collapsible: true
 
   - name: sponsorship
-    label: 💼 Sponsorluk Paketleri
+    label: Sponsorluk Paketleri
     type: file
     path: src/data/sponsorship.json
     format: json
@@ -345,7 +455,7 @@ content:
           - { name: buttonLabel, label: Buton yazısı, type: string }
 
   - name: join
-    label: 📝 Bize Katılın
+    label: Bize Katılın
     type: file
     path: src/data/join.json
     format: json
@@ -387,7 +497,7 @@ content:
           - { name: answer, label: Cevap, type: text }
 
   - name: gallery
-    label: 📸 Galeri
+    label: Galeri
     type: file
     path: src/data/gallery.json
     format: json
@@ -408,7 +518,7 @@ content:
               values: [Atölye, Yarışma, Teknik Gezi, Etkinlik, Sponsor]
 
   - name: site
-    label: ⚙️ Site Ayarları & İletişim
+    label: Site Ayarları ve İletişim
     type: file
     path: src/data/site.json
     format: json

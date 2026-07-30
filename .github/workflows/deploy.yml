@@ -6,6 +6,10 @@ on:
     branches: [main]
   # Actions sekmesinden elle de çalıştırılabilir
   workflow_dispatch:
+  # Her gün 06:00 (TR) yeniden derler; böylece "son gösterim tarihi"
+  # geçmiş duyurular siteden kendiliğinden düşer
+  schedule:
+    - cron: '0 3 * * *'
 
 # Depoyu okuma ve GitHub Pages'e yayınlama izinleri
 permissions:

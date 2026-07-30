@@ -2,7 +2,7 @@
 import Logo from './Logo.astro';
 import SocialIcon from './SocialIcon.astro';
 import site from '../data/site.json';
-import { url, NAV_LINKS } from '../lib/utils';
+import { url, FOOTER_LINKS } from '../lib/utils';
 
 const year = new Date().getFullYear();
 ---
@@ -43,7 +43,7 @@ const year = new Date().getFullYear();
             <a href={url('/')} class="text-sm text-mist-300 transition-colors hover:text-volt-300">Anasayfa</a>
           </li>
           {
-            NAV_LINKS.map((link) => (
+            FOOTER_LINKS.map((link) => (
               <li>
                 <a href={url(link.href)} class="text-sm text-mist-300 transition-colors hover:text-volt-300">
                   {link.label}
@@ -51,11 +51,6 @@ const year = new Date().getFullYear();
               </li>
             ))
           }
-          <li>
-            <a href={url('/bize-katilin')} class="text-sm text-mist-300 transition-colors hover:text-volt-300">
-              Bize Katılın
-            </a>
-          </li>
         </ul>
       </nav>
 

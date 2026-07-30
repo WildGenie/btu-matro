@@ -9,13 +9,19 @@ import CtaBand from '../components/CtaBand.astro';
 import home from '../data/home.json';
 import achievements from '../data/achievements.json';
 import sponsors from '../data/sponsors.json';
-import { url, degreeTone } from '../lib/utils';
+import { url, degreeTone, publishedNews } from '../lib/utils';
 
 const teams = (await getCollection('teams'))
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 6);
 
 const featured = achievements.items.filter((a) => a.featured).slice(0, 6);
+
+// Öne çıkarılmış haber/duyuru varsa anasayfada şerit olarak göster; yoksa hiç çıkmaz
+const announcements = publishedNews(await getCollection('haberler'), { onlyPinned: true }).slice(0, 2);
+// Son haberler bölümü
+const latestNews = publishedNews(await getCollection('haberler')).slice(0, 3);
+const dateFmt = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 
 <BaseLayout>
@@ -69,6 +75,48 @@ const featured = achievements.items.filter((a) => a.featured).slice(0, 6);
       </div>
     </div>
   </section>
+
+  <!-- ============ DUYURULAR (yayında duyuru varsa) ============ -->
+  {
+    announcements.length > 0 && (
+      <section class="container-matro pt-4">
+        <div class="grid gap-4 md:grid-cols-2">
+          {announcements.map((item, i) => (
+            <a
+              href={url('/haberler')}
+              class="card card-hover reveal group flex items-start gap-4 p-5"
+              data-delay={i * 60}
+            >
+              <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-volt-400/12 text-volt-300">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 10.5v3a1.5 1.5 0 0 0 1.5 1.5H8l6 4V6.5l-6 4H5.5A1.5 1.5 0 0 0 4 12Z" />
+                  <path d="M17.5 9a4 4 0 0 1 0 6" />
+                </svg>
+              </span>
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="font-mono text-[0.62rem] tracking-[0.15em] text-volt-400 uppercase">
+                    {item.data.type}
+                  </span>
+                  <time datetime={item.data.date.toISOString()} class="font-mono text-[0.68rem] text-mist-500">
+                    {dateFmt.format(item.data.date)}
+                  </time>
+                </div>
+                <h2 class="mt-1.5 text-base font-bold text-mist-100 transition-colors group-hover:text-volt-300">
+                  {item.data.title}
+                </h2>
+                {item.data.summary && (
+                  <p class="mt-1 line-clamp-2 text-sm leading-relaxed text-mist-500">
+                    {item.data.summary}
+                  </p>
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )
+  }
 
   <!-- ============ RAKAMLARLA MATRO ============ -->
   <Section eyebrow="Rakamlarla MATRO" title="2013'ten bugüne biriken emek">
@@ -158,6 +206,57 @@ const featured = achievements.items.filter((a) => a.featured).slice(0, 6);
       </a>
     </div>
   </Section>
+
+  <!-- ============ SON HABERLER ============ -->
+  {
+    latestNews.length > 0 && (
+      <Section
+        eyebrow="Haberler"
+        title="Topluluktan son gelişmeler"
+        description="Yarışma sonuçları, teknik geziler ve etkinliklerden güncel haberler."
+      >
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {latestNews.map((item, i) => (
+            <a
+              href={url('/haberler')}
+              class="card card-hover reveal group flex flex-col p-5"
+              data-delay={i * 55}
+            >
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="font-mono text-[0.62rem] tracking-[0.15em] text-volt-400 uppercase">
+                  {item.data.type}
+                </span>
+                <time
+                  datetime={item.data.date.toISOString()}
+                  class="font-mono text-[0.68rem] text-mist-500"
+                >
+                  {dateFmt.format(item.data.date)}
+                </time>
+              </div>
+              <h3 class="mt-2.5 text-base font-bold text-mist-100 transition-colors group-hover:text-volt-300">
+                {item.data.title}
+              </h3>
+              {item.data.summary && (
+                <p class="mt-2 flex-1 text-sm leading-relaxed text-mist-500">{item.data.summary}</p>
+              )}
+            </a>
+          ))}
+        </div>
+
+        <div class="reveal mt-8">
+          <a
+            href={url('/haberler')}
+            class="inline-flex items-center gap-2 text-sm font-semibold text-volt-400 hover:text-volt-300"
+          >
+            Tüm haberler
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+      </Section>
+    )
+  }
 
   <!-- ============ SPONSORLAR ============ -->
   <Section eyebrow="Destekçilerimiz" title="Bizi mümkün kılanlar" align="center">

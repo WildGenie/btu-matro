@@ -12,7 +12,7 @@ Site tamamen statiktir: sunucu, veritabanı ve barındırma ücreti yoktur. Tüm
 
 ---
 
-## 📝 İçeriği nasıl düzenlerim?
+## İçeriği nasıl düzenlerim?
 
 > **Kod bilmene gerek yok.** Aşağıdaki panel, Word'de yazı yazmak kadar basit.
 
@@ -29,16 +29,18 @@ Site tamamen statiktir: sunucu, veritabanı ve barındırma ücreti yoktur. Tüm
 
 | Bölüm | Ne düzenlenir |
 |---|---|
-| 🏠 **Anasayfa** | Giriş yazısı, butonlar, sayaç rakamları, tanıtım videosu |
-| ℹ️ **Hakkımızda** | Biz kimiz, vizyon, misyon, değerler, tarihçe |
-| 🏆 **Başarılarımız** | Tüm dereceler ve ödüller tablosu |
-| 🎓 **Faaliyetlerimiz** | Eğitim kampı, teknik gezi, seminer, sosyal sorumluluk |
-| 🤖 **Takımlarımız** | Her takımın kendi sayfası |
-| 🤝 **Sponsorlar** | Güncel ve geçmiş sponsor listesi |
-| 💼 **Sponsorluk Paketleri** | Platin/Altın/Gümüş/Bronz paket içerikleri |
-| 📝 **Bize Katılın** | Başvuru formu bağlantısı, adımlar, SSS |
-| 📸 **Galeri** | Fotoğraflar |
-| ⚙️ **Site Ayarları & İletişim** | E-posta, adres, telefon, sosyal medya |
+| **Anasayfa** | Giriş yazısı, butonlar, sayaç rakamları, tanıtım videosu |
+| **Hakkımızda** | Biz kimiz, vizyon, misyon, değerler, tarihçe |
+| **Başarılarımız** | Tüm dereceler ve ödüller tablosu |
+| **Faaliyetlerimiz** | Eğitim kampı, teknik gezi, seminer, sosyal sorumluluk |
+| **Haberler ve Duyurular** | Yarışma sonuçları, geziler, etkinlikler, başvuru çağrıları |
+| **Ekibimiz** | Yönetim kurulu ekipleri ve kişiler (fotoğraflı) |
+| **Takımlarımız** | Her takımın kendi sayfası |
+| **Sponsorlar** | Güncel ve geçmiş sponsor listesi |
+| **Sponsorluk Paketleri** | Platin/Altın/Gümüş/Bronz paket içerikleri |
+| **Bize Katılın** | Başvuru formu bağlantısı, adımlar, SSS |
+| **Galeri** | Fotoğraflar |
+| **Site Ayarları ve İletişim** | E-posta, adres, telefon, sosyal medya |
 
 ### Düzenleme yaparken
 
@@ -50,32 +52,46 @@ Site tamamen statiktir: sunucu, veritabanı ve barındırma ücreti yoktur. Tüm
 ### Sık yapılan işler
 
 **Yeni bir derece/ödül eklemek**
-🏆 Başarılarımız → *Dereceler ve Ödüller* listesinde **+** → yıl, yarışma, kategori, derece → Save.
+Başarılarımız → *Dereceler ve Ödüller* listesinde **+** → yıl, yarışma, kategori, derece → Save.
 Anasayfada da görünsün istiyorsan **Anasayfada öne çıkar** kutusunu işaretle.
 
 **Yeni takım açmak**
-🤖 Takımlarımız → sağ üstte **Add entry** → takım adı, alt başlık, kategori, özet ve detay metnini gir → Save.
+Takımlarımız → sağ üstte **Add entry** → takım adı, alt başlık, kategori, özet ve detay metnini gir → Save.
 Takım sayfası otomatik oluşur ve listeye eklenir.
 
 **Bir takımı arşive kaldırmak**
 Takımı aç → **Durum** alanını `Arşiv` yap → Save. Takım listeden kalkar ama içerik silinmez.
 
+**Haber yayınlamak**
+Haberler ve Duyurular → **Add entry** → başlık, tür, tarih, özet ve içeriği gir → Save.
+Yazarken **emoji kullanmayın**; sitenin dili sosyal medyadan farklı, sade ve kurumsaldır.
+
+**Başvuru duyurusu yapmak (ör. yönetim kurulu başvuruları)**
+Haberler ve Duyurular → ilgili taslağı aç → **Taslak** kutusunun işaretini kaldır →
+**Anasayfada öne çıkar**'ı işaretle → **Son gösterim tarihi**'ne başvuru bitiş tarihini yaz → Save.
+Tarih geçince duyuru siteden kendiliğinden düşer; ayrıca bir şey yapmanız gerekmez.
+*(Yönetim kurulu başvuru metni taslak olarak hazır bekliyor.)*
+
+**Ekip üyesi eklemek**
+Ekibimiz → *Kişiler* listesinde **+** → ad soyad, görev, ekip ve fotoğraf → Save.
+Kişiler seçtiğiniz ekibe göre otomatik gruplanır.
+
 **Başvuru formunu bağlamak**
-📝 Bize Katılın → *Başvuru formu bağlantısı* alanına Google Forms adresini yapıştır → Save.
+Bize Katılın → *Başvuru formu bağlantısı* alanına Google Forms adresini yapıştır → Save.
 (Boş bırakılırsa sitede Instagram butonu gösterilir.)
 
 **Başkan bilgisini güncellemek**
-⚙️ Site Ayarları → *Yetkililer* → ilgili satırı doldur → Save.
+Site Ayarları → *Yetkililer* → ilgili satırı doldur → Save.
 Telefon/e-posta boş bırakılırsa sitede hiç gösterilmez.
 
-### ⚠️ Dikkat
+### Dikkat
 
 - **Sponsor tutarları sitede görünmez.** `Tutar` alanı yalnızca topluluk içi kayıt içindir. Ama bu depo herkese açıksa dosya içeriği de görülebilir — hassas bulunuyorsa alanı boş bırakın.
-- **Kişisel telefon/e-posta yayınlarken izin alın.** ⚙️ Site Ayarları → Yetkililer bölümündeki bilgiler herkese açık şekilde sitede görünür.
+- **Kişisel telefon/e-posta yayınlarken izin alın.** Site Ayarları → Yetkililer bölümündeki bilgiler herkese açık şekilde sitede görünür.
 
 ---
 
-## 🌐 btumatro.com alan adını bağlama
+## btumatro.com alan adını bağlama
 
 Alan adı Cloudflare'de kayıtlı. Bağlamak için sırasıyla:
 
@@ -124,7 +140,7 @@ Kaydet (commit). Site birkaç dakika içinde btumatro.com üzerinden yayına gir
 
 ---
 
-## 🛠️ Geliştirici notları
+## Geliştirici notları
 
 ### Kurulum
 
@@ -190,6 +206,11 @@ src/
   styles/global.css      Renk paleti ve tipografi
 ```
 
+### Menü yapısı
+
+Üst menü `src/lib/utils.ts` içindeki `NAV` dizisinde tanımlıdır. Bir öğeye `children` eklerseniz
+açılır menü olur. Alt bilgideki düz liste ise aynı dosyadaki `FOOTER_LINKS`'tir.
+
 ### Renkleri ve yazı tiplerini değiştirmek
 
 `src/styles/global.css` içindeki `@theme` bloğu tüm paleti ve tipografiyi tanımlar. Oradaki değerleri değiştirmek tüm siteyi etkiler.
@@ -202,7 +223,7 @@ src/
 
 ---
 
-## 🆘 Sorun giderme
+## Sorun giderme
 
 **Değişikliğim sitede görünmüyor**
 Depo → **Actions** sekmesine bak. Sarı nokta = derleniyor, yeşil tik = yayınlandı, kırmızı çarpı = hata. Kırmızıysa üzerine tıklayıp hatayı oku.

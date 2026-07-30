@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import CtaBand from '../components/CtaBand.astro';
+import ekip from '../data/ekibimiz.json';
+import { media } from '../lib/utils';
+
+type Person = {
+  name: string;
+  role?: string;
+  group?: string;
+  photo?: string;
+  order?: number;
+  linkedin?: string;
+};
+
+const people = (ekip.people as Person[]).filter((p) => p.name?.trim());
+
+// Kişileri gruba göre böl; sıralama ekibimiz.json içindeki groupOrder'a uyar.
+const order = ekip.groupOrder;
+const groups = order
+  .map((name) => ({
+    name,
+    members: people
+      .filter((p) => p.group === name)
+      .sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || a.name.localeCompare(b.name, 'tr')),
+  }))
+  .filter((g) => g.members.length > 0);
+
+// groupOrder'da tanımlı olmayan bir gruba atanmış kişiler kaybolmasın
+const listed = new Set(order);
+const otherMembers = people.filter((p) => !p.group || !listed.has(p.group));
+if (otherMembers.length) groups.push({ name: 'Diğer', members: otherMembers });
+
+const initials = (name: string) =>
+  name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0]?.toLocaleUpperCase('tr') ?? '')
+    .join('');
+---
+
+<BaseLayout
+  title="Ekibimiz"
+  description="MATRO yönetim kurulu, ekip yöneticileri ve proje takımı kaptanları. Atölye, Sponsorluk, Organizasyon ve Sosyal Medya ekiplerinin görev tanımları."
+>
+  <PageHero
+    eyebrow={ekip.hero.eyebrow}
+    title={ekip.hero.title}
+    description={ekip.hero.description}
+  />
+
+  <!-- Yönetim kurulu ekipleri -->
+  <Section
+    eyebrow="Yönetim Kurulu"
+    title="Kurul içindeki ekipler"
+    description={ekip.boardIntro}
+  >
+    <div class="mt-10 grid gap-4 sm:grid-cols-2">
+      {
+        ekip.boardTeams.map((team, i) => (
+          <article class="card reveal p-6" data-delay={i * 55}>
+            <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-volt-400/12 font-mono text-sm font-bold text-volt-300">
+              {String(i + 1).padStart(2, '0')}
+            </div>
+            <h3 class="mt-4 text-base font-bold text-mist-100">{team.name}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-mist-500">{team.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <!-- Kişiler -->
+  {
+    groups.length > 0 ? (
+      <Section eyebrow="Kadro" title="Görev alan arkadaşlarımız" class="pt-0">
+        <div class="mt-10 space-y-14">
+          {groups.map((group) => (
+            <div>
+              <h3 class="reveal font-mono text-[0.7rem] tracking-[0.2em] text-volt-400 uppercase">
+                {group.name}
+              </h3>
+              <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {group.members.map((person, i) => {
+                  const photo = media(person.photo);
+                  return (
+                    <article class="card reveal overflow-hidden" data-delay={(i % 4) * 50}>
+                      <div class="aspect-square overflow-hidden border-b border-white/8 bg-ink-800">
+                        {photo ? (
+                          <img
+                            src={photo}
+                            alt={person.name}
+                            loading="lazy"
+                            decoding="async"
+                            class="h-full w-full object-cover"
+                          />
+                        ) : (
+                          <div class="grid-bg flex h-full w-full items-center justify-center">
+                            <span class="font-mono text-3xl font-bold text-white/12 select-none">
+                              {initials(person.name)}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <div class="p-4">
+                        <h4 class="text-sm font-bold text-mist-100">{person.name}</h4>
+                        {person.role && <p class="mt-0.5 text-xs text-volt-400">{person.role}</p>}
+                        {person.linkedin && (
+                          <a
+                            href={person.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="mt-2 inline-block text-xs text-mist-500 transition-colors hover:text-volt-300"
+                          >
+                            LinkedIn →
+                          </a>
+                        )}
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+    ) : (
+      <Section class="pt-0">
+        <div class="card grid-bg flex flex-col items-center justify-center px-6 py-20 text-center">
+          <svg
+            class="h-10 w-10 text-white/15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <circle cx="9" cy="8" r="3.5" />
+            <path d="M2.5 20a6.5 6.5 0 0 1 13 0" />
+            <path d="M16 5.5a3.5 3.5 0 0 1 0 7M17.5 14.2A6.5 6.5 0 0 1 21.5 20" />
+          </svg>
+          <h2 class="mt-5 text-lg font-bold text-mist-100">Kadro henüz eklenmedi</h2>
+          <p class="mt-2 max-w-md text-sm leading-relaxed text-mist-500">
+            İçerik panelinde <strong class="text-mist-300">👥 Ekibimiz</strong> bölümünü aç,{' '}
+            <strong class="text-mist-300">Kişiler</strong> listesine ad, görev, ekip ve fotoğraf
+            ekle. Eklenen kişiler burada ekiplerine göre gruplanmış şekilde görünür.
+          </p>
+        </div>
+      </Section>
+    )
+  }
+
+  <CtaBand
+    title="Yönetim kurulunda görev almak ister misin?"
+    description="Yönetim kurulu başvuruları her dönem başında açılır. Duyuruları Instagram hesabımızdan ve sitemizden takip edebilirsin."
+    primary={{ label: 'Bize Katılın', href: '/bize-katilin' }}
+    secondary={{ label: 'İletişim', href: '/iletisim' }}
+  />
+</BaseLayout>

@@ -1,0 +1,142 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import { media, publishedNews } from '../lib/utils';
+
+const entries = publishedNews(await getCollection('haberler'));
+const rendered = await Promise.all(
+  entries.map(async (entry) => ({ entry, Content: (await render(entry)).Content }))
+);
+
+const dateFmt = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<BaseLayout
+  title="Haberler"
+  description="MATRO'dan haberler ve duyurular: yarışma sonuçları, teknik geziler, etkinlikler, sponsorluklar ve başvuru çağrıları."
+>
+  <PageHero
+    eyebrow="Haberler"
+    title="Topluluktan son gelişmeler"
+    description="Yarışma sonuçları, teknik geziler, etkinlikler ve başvuru duyuruları burada yayınlanır."
+  />
+
+  <Section>
+    {
+      rendered.length > 0 ? (
+        <div class="space-y-5">
+          {rendered.map(({ entry, Content }, i) => {
+            const cover = media(entry.data.image);
+            return (
+              <article class="card reveal overflow-hidden" data-delay={i * 45}>
+                <div class="grid md:grid-cols-[1fr_1.6fr]">
+                  <div class="relative min-h-[11rem] border-b border-white/8 bg-ink-800 md:border-r md:border-b-0">
+                    {cover ? (
+                      <img
+                        src={cover}
+                        alt={entry.data.title}
+                        loading="lazy"
+                        decoding="async"
+                        class="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <div class="grid-bg flex h-full w-full items-center justify-center p-6">
+                        <span class="font-mono text-xs tracking-[0.2em] text-white/15 uppercase">
+                          {entry.data.type}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div class="p-6 md:p-8">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <span class="rounded-md bg-volt-400/10 px-2.5 py-1 font-mono text-[0.65rem] tracking-wider text-volt-300 uppercase">
+                        {entry.data.type}
+                      </span>
+                      <time
+                        datetime={entry.data.date.toISOString()}
+                        class="font-mono text-[0.7rem] text-mist-500"
+                      >
+                        {dateFmt.format(entry.data.date)}
+                      </time>
+                      {entry.data.expiresOn && (
+                        <span class="rounded-md bg-medal-400/10 px-2.5 py-1 font-mono text-[0.65rem] text-medal-400">
+                          Son tarih: {dateFmt.format(new Date(entry.data.expiresOn))}
+                        </span>
+                      )}
+                    </div>
+
+                    <h2 class="mt-3 text-xl font-bold tracking-tight text-mist-100">
+                      {entry.data.title}
+                    </h2>
+
+                    {entry.data.summary && (
+                      <p class="mt-2 leading-relaxed text-mist-300">{entry.data.summary}</p>
+                    )}
+
+                    <div class="mt-5 flex flex-wrap items-center gap-5">
+                      <details class="group w-full">
+                        <summary class="inline-flex cursor-pointer list-none items-center gap-1.5 text-sm font-semibold text-volt-400 hover:text-volt-300">
+                          Haberin devamı
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            class="transition-transform group-open:rotate-180"
+                          >
+                            <path d="m6 9 6 6 6-6" />
+                          </svg>
+                        </summary>
+                        <div class="prose-matro mt-4 border-t border-white/8 pt-4 text-sm">
+                          <Content />
+                        </div>
+                      </details>
+                    </div>
+
+                    {entry.data.link && (
+                      <a
+                        href={entry.data.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="mt-5 inline-block rounded-xl bg-volt-400 px-5 py-2.5 text-sm font-semibold text-ink-950 transition-transform hover:scale-[1.03]"
+                      >
+                        {entry.data.linkLabel || 'Ayrıntılar'}
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      ) : (
+        <div class="card grid-bg flex flex-col items-center justify-center px-6 py-20 text-center">
+          <svg
+            class="h-10 w-10 text-white/15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="M7 9h6M7 13h10M7 16h5" stroke-linecap="round" />
+          </svg>
+          <h2 class="mt-5 text-lg font-bold text-mist-100">Henüz haber yayınlanmadı</h2>
+          <p class="mt-2 max-w-md text-sm leading-relaxed text-mist-500">
+            İçerik panelindeki <strong class="text-mist-300">Haberler ve Duyurular</strong>{' '}
+            bölümünden yeni içerik ekleyebilirsiniz.
+          </p>
+        </div>
+      )
+    }
+  </Section>
+</BaseLayout>

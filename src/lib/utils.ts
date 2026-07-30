@@ -19,15 +19,68 @@ export function media(path?: string | null): string | null {
   return url(p);
 }
 
-export const NAV_LINKS = [
+export interface NavItem {
+  label: string;
+  href: string;
+  children?: { label: string; href: string; description?: string }[];
+}
+
+/**
+ * Üst menü. `children` verilen öğe açılır menü olur; ana bağlantı yine
+ * kendi sayfasına gider, alt bağlantılar menüde listelenir.
+ */
+export const NAV: NavItem[] = [
+  {
+    label: 'Topluluk',
+    href: '/hakkimizda',
+    children: [
+      { label: 'Hakkımızda', href: '/hakkimizda', description: 'Biz kimiz, vizyon, misyon, tarihçe' },
+      { label: 'Ekibimiz', href: '/ekibimiz', description: 'Yönetim kurulu ve ekipler' },
+      { label: 'Faaliyetlerimiz', href: '/faaliyetlerimiz', description: 'Eğitimler, geziler, sosyal sorumluluk' },
+      { label: 'Galeri', href: '/galeri', description: 'Atölye ve yarışmalardan kareler' },
+    ],
+  },
+  { label: 'Takımlarımız', href: '/takimlarimiz' },
+  { label: 'Başarılarımız', href: '/basarilarimiz' },
+  { label: 'Haberler', href: '/haberler' },
+  { label: 'Sponsorluk', href: '/sponsorluk' },
+  { label: 'İletişim', href: '/iletisim' },
+];
+
+/** Alt bilgideki düz site haritası. */
+export const FOOTER_LINKS = [
   { label: 'Hakkımızda', href: '/hakkimizda' },
+  { label: 'Ekibimiz', href: '/ekibimiz' },
   { label: 'Takımlarımız', href: '/takimlarimiz' },
   { label: 'Başarılarımız', href: '/basarilarimiz' },
   { label: 'Faaliyetlerimiz', href: '/faaliyetlerimiz' },
+  { label: 'Haberler', href: '/haberler' },
   { label: 'Sponsorluk', href: '/sponsorluk' },
   { label: 'Galeri', href: '/galeri' },
+  { label: 'Bize Katılın', href: '/bize-katilin' },
   { label: 'İletişim', href: '/iletisim' },
 ] as const;
+
+/**
+ * Haber ve duyuruları yeniden eskiye sıralar; taslakları eler.
+ * `pinned` olanlar anasayfa şeridinde gösterilir, `expiresOn` geçince düşer.
+ */
+export function publishedNews<
+  T extends { data: { draft: boolean; expiresOn: string; date: Date; pinned: boolean } },
+>(entries: T[], opts: { onlyPinned?: boolean } = {}): T[] {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return entries
+    .filter((e) => {
+      if (e.data.draft) return false;
+      if (opts.onlyPinned && !e.data.pinned) return false;
+      const until = e.data.expiresOn?.trim();
+      if (!until) return true;
+      const end = new Date(until);
+      return Number.isNaN(end.getTime()) ? true : end >= today;
+    })
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+}
 
 /** Sponsorluk paketine göre renk sınıfı */
 export function packageTone(name: string): { ring: string; text: string; bg: string } {

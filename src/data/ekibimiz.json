@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "eyebrow": "Ekibimiz",
+    "title": "Topluluğu yöneten ekip",
+    "description": "MATRO; yönetim kurulu, ekip yöneticileri ve proje takımı kaptanlarından oluşan bir yapı ile yürütülür. Yönetim kurulu, topluluğun işleyişini dört ekip altında paylaşır."
+  },
+  "boardIntro": "Yönetim Kurulu, topluluğun günlük işleyişinden ve stratejik kararlarından sorumludur. Kurul içindeki ekipler şu alanlarda çalışır:",
+  "boardTeams": [
+    {
+      "name": "Atölye Ekibi",
+      "description": "Atölye düzeni ve denetiminden, takımlar arası iletişimden ve takım koordinasyonluğundan sorumludur."
+    },
+    {
+      "name": "Sponsorluk Ekibi",
+      "description": "Topluluğun ihtiyaçlarını karşılamak için iş birlikleri kurarak sponsorluk süreçlerini yürütür."
+    },
+    {
+      "name": "Organizasyon Ekibi",
+      "description": "Etkinlikler planlar ve etkinlik süreçleri organize ederek topluluk içi faaliyetleri güçlendirir."
+    },
+    {
+      "name": "Sosyal Medya Ekibi",
+      "description": "Topluluğun dijital yüzünü oluşturur, paylaşımlar ve içeriklerle görünürlüğü artırır."
+    }
+  ],
+  "groupOrder": [
+    "Danışman",
+    "Başkanlık",
+    "Atölye Ekibi",
+    "Sponsorluk Ekibi",
+    "Organizasyon Ekibi",
+    "Sosyal Medya Ekibi",
+    "Takım Kaptanları"
+  ],
+  "people": []
+}

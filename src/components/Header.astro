@@ -1,39 +1,102 @@
 ---
 import Logo from './Logo.astro';
-import { url, NAV_LINKS } from '../lib/utils';
+import { url, NAV } from '../lib/utils';
 
 const current = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const isActive = (href: string) => {
   const target = url(href).replace(/\/+$/, '');
   return current === target || current.startsWith(`${target}/`);
 };
+const groupActive = (item: (typeof NAV)[number]) =>
+  isActive(item.href) || (item.children ?? []).some((c) => isActive(c.href));
 ---
 
 <header
   id="site-header"
-  class="fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300 border-b border-transparent"
+  class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-[background-color,backdrop-filter,border-color] duration-300"
 >
   <div class="container-matro flex h-[4.5rem] items-center justify-between gap-4">
     <a href={url('/')} class="shrink-0" aria-label="MATRO ana sayfa">
       <Logo />
     </a>
 
-    <nav class="hidden items-center gap-1 lg:flex" aria-label="Ana menü">
+    <nav class="hidden items-center gap-0.5 lg:flex" aria-label="Ana menü">
       {
-        NAV_LINKS.map((link) => (
-          <a
-            href={url(link.href)}
-            aria-current={isActive(link.href) ? 'page' : undefined}
-            class:list={[
-              'rounded-lg px-3 py-2 text-[0.875rem] font-medium transition-colors',
-              isActive(link.href)
-                ? 'text-volt-300 bg-volt-400/10'
-                : 'text-mist-300 hover:text-mist-100 hover:bg-white/5',
-            ]}
-          >
-            {link.label}
-          </a>
-        ))
+        NAV.map((item) =>
+          item.children ? (
+            <div class="nav-group relative">
+              <button
+                type="button"
+                class:list={[
+                  'nav-trigger flex items-center gap-1 rounded-lg px-3 py-2 text-[0.86rem] font-medium whitespace-nowrap transition-colors',
+                  groupActive(item)
+                    ? 'text-volt-300 bg-volt-400/10'
+                    : 'text-mist-300 hover:bg-white/5 hover:text-mist-100',
+                ]}
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                {item.label}
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  class="nav-caret transition-transform duration-200"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+
+              <div class="nav-panel invisible absolute top-full left-0 pt-2 opacity-0 transition-[opacity,transform] duration-200 -translate-y-1">
+                <div class="w-72 rounded-xl border border-white/12 bg-ink-850/98 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl">
+                  {item.children.map((child) => (
+                    <a
+                      href={url(child.href)}
+                      aria-current={isActive(child.href) ? 'page' : undefined}
+                      class:list={[
+                        'block rounded-lg px-3 py-2.5 transition-colors',
+                        isActive(child.href) ? 'bg-volt-400/10' : 'hover:bg-white/5',
+                      ]}
+                    >
+                      <span
+                        class:list={[
+                          'block text-[0.86rem] font-semibold',
+                          isActive(child.href) ? 'text-volt-300' : 'text-mist-100',
+                        ]}
+                      >
+                        {child.label}
+                      </span>
+                      {child.description && (
+                        <span class="mt-0.5 block text-xs leading-snug text-mist-500">
+                          {child.description}
+                        </span>
+                      )}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <a
+              href={url(item.href)}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              class:list={[
+                'rounded-lg px-3 py-2 text-[0.86rem] font-medium whitespace-nowrap transition-colors',
+                isActive(item.href)
+                  ? 'text-volt-300 bg-volt-400/10'
+                  : 'text-mist-300 hover:bg-white/5 hover:text-mist-100',
+              ]}
+            >
+              {item.label}
+            </a>
+          )
+        )
       }
     </nav>
 
@@ -61,24 +124,41 @@ const isActive = (href: string) => {
     </div>
   </div>
 
-  <div
-    id="mobile-nav"
-    class="hidden border-t border-white/10 bg-ink-950/97 backdrop-blur-xl lg:hidden"
-  >
-    <nav class="container-matro flex flex-col gap-1 py-4" aria-label="Mobil menü">
+  <div id="mobile-nav" class="hidden border-t border-white/10 bg-ink-950/97 backdrop-blur-xl lg:hidden">
+    <nav class="container-matro flex max-h-[calc(100svh-4.5rem)] flex-col gap-1 overflow-y-auto py-4" aria-label="Mobil menü">
       {
-        NAV_LINKS.map((link) => (
-          <a
-            href={url(link.href)}
-            aria-current={isActive(link.href) ? 'page' : undefined}
-            class:list={[
-              'rounded-lg px-3 py-3 text-[0.95rem] font-medium transition-colors',
-              isActive(link.href) ? 'text-volt-300 bg-volt-400/10' : 'text-mist-300 hover:bg-white/5',
-            ]}
-          >
-            {link.label}
-          </a>
-        ))
+        NAV.map((item) =>
+          item.children ? (
+            <div class="py-1">
+              <span class="block px-3 py-2 font-mono text-[0.62rem] tracking-[0.18em] text-mist-500 uppercase">
+                {item.label}
+              </span>
+              {item.children.map((child) => (
+                <a
+                  href={url(child.href)}
+                  aria-current={isActive(child.href) ? 'page' : undefined}
+                  class:list={[
+                    'block rounded-lg px-3 py-2.5 text-[0.95rem] font-medium transition-colors',
+                    isActive(child.href) ? 'bg-volt-400/10 text-volt-300' : 'text-mist-300 hover:bg-white/5',
+                  ]}
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          ) : (
+            <a
+              href={url(item.href)}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              class:list={[
+                'rounded-lg px-3 py-3 text-[0.95rem] font-medium transition-colors',
+                isActive(item.href) ? 'bg-volt-400/10 text-volt-300' : 'text-mist-300 hover:bg-white/5',
+              ]}
+            >
+              {item.label}
+            </a>
+          )
+        )
       }
       <a
         href={url('/bize-katilin')}
@@ -89,6 +169,22 @@ const isActive = (href: string) => {
     </nav>
   </div>
 </header>
+
+<style>
+  /* Açılır menü: fareyle üzerine gelince, klavyeyle odaklanınca veya tıklanınca açılır */
+  .nav-group:hover .nav-panel,
+  .nav-group:focus-within .nav-panel,
+  .nav-group.is-open .nav-panel {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .nav-group:hover .nav-caret,
+  .nav-group:focus-within .nav-caret,
+  .nav-group.is-open .nav-caret {
+    transform: rotate(180deg);
+  }
+</style>
 
 <script>
   const header = document.getElementById('site-header');
@@ -108,10 +204,36 @@ const isActive = (href: string) => {
 
   toggle?.addEventListener('click', () => {
     if (!panel) return;
-    const open = panel.classList.toggle('hidden');
-    toggle.setAttribute('aria-expanded', String(!open));
-    toggle.setAttribute('aria-label', open ? 'Menüyü aç' : 'Menüyü kapat');
-    toggle.querySelector('.nav-open-icon')?.classList.toggle('hidden', !open);
-    toggle.querySelector('.nav-close-icon')?.classList.toggle('hidden', open);
+    const closed = panel.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!closed));
+    toggle.setAttribute('aria-label', closed ? 'Menüyü aç' : 'Menüyü kapat');
+    toggle.querySelector('.nav-open-icon')?.classList.toggle('hidden', !closed);
+    toggle.querySelector('.nav-close-icon')?.classList.toggle('hidden', closed);
+  });
+
+  // Masaüstü açılır menü: tıklamayla da açılıp kapansın (dokunmatik cihazlar için)
+  document.querySelectorAll<HTMLElement>('.nav-group').forEach((group) => {
+    const trigger = group.querySelector<HTMLButtonElement>('.nav-trigger');
+    trigger?.addEventListener('click', (event) => {
+      event.preventDefault();
+      const open = group.classList.toggle('is-open');
+      trigger.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    document.querySelectorAll<HTMLElement>('.nav-group.is-open').forEach((group) => {
+      if (group.contains(event.target as Node)) return;
+      group.classList.remove('is-open');
+      group.querySelector('.nav-trigger')?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll<HTMLElement>('.nav-group.is-open').forEach((group) => {
+      group.classList.remove('is-open');
+      group.querySelector('.nav-trigger')?.setAttribute('aria-expanded', 'false');
+    });
   });
 </script>
