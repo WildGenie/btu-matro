@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import sponsorship from '../data/sponsorship.json';
+import sponsors from '../data/sponsors.json';
+import site from '../data/site.json';
+import { url, media, packageTone } from '../lib/utils';
+
+const mailto = `mailto:${site.contact.emails[0]}?subject=${encodeURIComponent('Sponsorluk Başvurusu — MATRO')}`;
+---
+
+<BaseLayout
+  title="Sponsorluk"
+  description="MATRO sponsorluk paketleri, destek türleri ve mevcut iş ortaklarımız. Geleceğin mühendislerine bugünden yatırım yapın."
+>
+  <PageHero
+    eyebrow={sponsorship.hero.eyebrow}
+    title={sponsorship.hero.title}
+    description={sponsorship.hero.description}
+  >
+    <div class="reveal mt-8" data-delay="180">
+      <a
+        href={mailto}
+        class="inline-block rounded-xl bg-volt-400 px-6 py-3.5 text-sm font-semibold text-ink-950 transition-transform hover:scale-[1.03]"
+      >
+        Sponsorluk dosyasını isteyin
+      </a>
+    </div>
+  </PageHero>
+
+  <!-- Paketler -->
+  <Section eyebrow="Paketler" title="Sponsorluk kademeleri">
+    <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {
+        sponsorship.packages.map((pkg, i) => {
+          const tone = packageTone(pkg.name);
+          return (
+            <article
+              class:list={[
+                'card reveal flex flex-col p-6',
+                pkg.highlight && 'ring-1 ring-volt-400/30',
+              ]}
+              data-delay={i * 60}
+            >
+              <div class={`inline-flex w-fit rounded-lg border px-2.5 py-1 ${tone.ring} ${tone.bg}`}>
+                <span class={`font-mono text-[0.65rem] tracking-[0.15em] uppercase ${tone.text}`}>
+                  {pkg.name}
+                </span>
+              </div>
+              <p class="mt-4 text-lg font-bold tracking-tight text-mist-100">{pkg.range}</p>
+
+              <ul class="mt-5 flex-1 space-y-2.5">
+                {pkg.benefits.map((b) => (
+                  <li class="flex gap-2.5 text-sm leading-relaxed text-mist-300">
+                    <svg
+                      class="mt-0.5 h-4 w-4 shrink-0 text-volt-400"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="m5 13 4 4L19 7" />
+                    </svg>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          );
+        })
+      }
+    </div>
+  </Section>
+
+  <!-- Destek türleri -->
+  <Section eyebrow="Destek Türleri" title="Nakit dışında da destek olabilirsiniz" class="pt-0">
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        sponsorship.supportTypes.map((t, i) => (
+          <article class="card reveal p-6" data-delay={i * 55}>
+            <h3 class="text-base font-bold text-mist-100">{t.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-mist-500">{t.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <!-- Mevcut sponsorlar -->
+  <Section eyebrow="İş Ortaklarımız" title="Mevcut sponsorlarımız" description={sponsors.intro} class="pt-0">
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        sponsors.current.map((s, i) => {
+          const tone = packageTone(s.package);
+          const logo = media(s.logo);
+          return (
+            <article class="card reveal flex flex-col p-6" data-delay={(i % 3) * 55}>
+              <div class="flex h-16 items-center">
+                {logo ? (
+                  <img
+                    src={logo}
+                    alt={`${s.name} logosu`}
+                    loading="lazy"
+                    decoding="async"
+                    class="max-h-12 max-w-[70%] object-contain"
+                  />
+                ) : (
+                  <span class="text-lg font-bold tracking-tight text-mist-100">{s.name}</span>
+                )}
+              </div>
+
+              {logo && <p class="mt-1 text-sm font-semibold text-mist-100">{s.name}</p>}
+
+              <div class="mt-4 flex flex-wrap items-center gap-2">
+                <span class={`rounded-md border px-2.5 py-1 font-mono text-[0.62rem] tracking-[0.12em] uppercase ${tone.ring} ${tone.bg} ${tone.text}`}>
+                  {s.package}
+                </span>
+                <span class="text-xs text-mist-500">{s.type}</span>
+              </div>
+
+              {
+                s.website && (
+                  <a
+                    href={s.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-4 text-xs font-semibold text-volt-400 hover:text-volt-300"
+                  >
+                    Web sitesi →
+                  </a>
+                )
+              }
+            </article>
+          );
+        })
+      }
+    </div>
+
+    {
+      sponsors.past.length > 0 && (
+        <div class="reveal mt-12">
+          <h3 class="font-mono text-[0.65rem] tracking-[0.2em] text-mist-500 uppercase">
+            Geçmiş Dönem Sponsorlarımız
+          </h3>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            {sponsors.past.map((name) => (
+              <li class="rounded-lg border border-white/10 px-3 py-1.5 text-sm text-mist-500">{name}</li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </Section>
+
+  <!-- İletişim CTA -->
+  <section class="container-matro py-8">
+    <div class="card reveal relative overflow-hidden px-6 py-12 text-center md:px-12 md:py-16">
+      <div class="grid-bg absolute inset-0 opacity-60" aria-hidden="true"></div>
+      <div
+        class="absolute -bottom-32 left-1/2 h-72 w-[38rem] -translate-x-1/2 rounded-full bg-medal-500/12 blur-[100px]"
+        aria-hidden="true"
+      >
+      </div>
+      <div class="relative mx-auto max-w-2xl">
+        <h2 class="text-2xl font-bold tracking-tight md:text-3xl">{sponsorship.cta.title}</h2>
+        <p class="mt-4 leading-relaxed text-mist-300">{sponsorship.cta.description}</p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href={mailto}
+            class="rounded-xl bg-volt-400 px-6 py-3 text-sm font-semibold text-ink-950 transition-transform hover:scale-[1.03]"
+          >
+            {sponsorship.cta.buttonLabel}
+          </a>
+          <a
+            href={url('/iletisim')}
+            class="rounded-xl border border-white/15 px-6 py-3 text-sm font-semibold text-mist-100 transition-colors hover:border-volt-400/50 hover:text-volt-300"
+          >
+            İletişim bilgileri
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

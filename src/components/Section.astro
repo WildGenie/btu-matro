@@ -1,0 +1,39 @@
+---
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  id?: string;
+  class?: string;
+  align?: 'left' | 'center';
+}
+const {
+  eyebrow,
+  title,
+  description,
+  id,
+  class: className = '',
+  align = 'left',
+} = Astro.props;
+---
+
+<section id={id} class={`container-matro py-16 md:py-24 ${className}`}>
+  {
+    (eyebrow || title || description) && (
+      <header class={align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'}>
+        {eyebrow && <p class="eyebrow reveal">{eyebrow}</p>}
+        {title && (
+          <h2 class="reveal mt-3 text-3xl font-bold tracking-tight md:text-4xl" data-delay="60">
+            {title}
+          </h2>
+        )}
+        {description && (
+          <p class="reveal mt-4 leading-relaxed text-mist-300" data-delay="110">
+            {description}
+          </p>
+        )}
+      </header>
+    )
+  }
+  <slot />
+</section>

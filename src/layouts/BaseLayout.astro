@@ -1,0 +1,119 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/global.css';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import site from '../data/site.json';
+import { url } from '../lib/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Sayfaya özel OG görseli (public/ içindeki yol) */
+  image?: string;
+}
+
+const {
+  title,
+  description = site.metaDescription,
+  image = '/og.png',
+} = Astro.props;
+
+const pageTitle = title
+  ? `${title} — ${site.shortName} | ${site.university}`
+  : `${site.shortName} — ${site.fullName} | ${site.university}`;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://btumatro.com');
+const ogImage = new URL(url(image), Astro.site ?? 'https://btumatro.com');
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: `${site.shortName} — ${site.fullName}`,
+  alternateName: site.shortName,
+  url: canonical.origin,
+  foundingDate: String(site.foundedYear),
+  email: site.contact.emails[0],
+  parentOrganization: { '@type': 'CollegeOrUniversity', name: site.university },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.contact.address,
+    addressLocality: 'Bursa',
+    addressCountry: 'TR',
+  },
+  sameAs: site.social.map((s) => s.url),
+};
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <link rel="canonical" href={canonical.href} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#04070d" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content={site.shortName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={ogImage.href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage.href} />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  </head>
+
+  <body class="min-h-screen antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-lg focus:bg-volt-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink-950"
+    >
+      İçeriğe geç
+    </a>
+
+    <Header />
+
+    <main id="main" class="pt-[4.5rem]">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script>
+      // Kaydırdıkça içerik belirme animasyonu
+      const items = document.querySelectorAll<HTMLElement>('.reveal');
+      if (items.length) {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) {
+          items.forEach((el) => el.classList.add('is-visible'));
+        } else {
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target as HTMLElement;
+                const delay = Number(el.dataset.delay ?? 0);
+                window.setTimeout(() => el.classList.add('is-visible'), delay);
+                io.unobserve(el);
+              });
+            },
+            { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+          );
+          items.forEach((el) => io.observe(el));
+        }
+      }
+    </script>
+  </body>
+</html>

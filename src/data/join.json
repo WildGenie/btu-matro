@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "eyebrow": "Bize Katılın",
+    "title": "MATRO ailesine katıl, ilk projeni bu dönem yap",
+    "description": "Teknolojiye meraklı, sorumluluk sahibi ve takım çalışmasına inanan tüm Bursa Teknik Üniversitesi öğrencilerini aramıza bekliyoruz. Bölüm ayrımı yok — mekanik, elektronik, yazılım, tasarım, organizasyon ve iletişim alanlarında herkese yer var."
+  },
+  "applicationFormUrl": "",
+  "steps": [
+    {
+      "title": "Online Başvuru",
+      "description": "Başvuru formunu doldur. İlgilendiğin çalışma alanını ve varsa deneyimini belirtmen yeterli; ön bilgi şartı yok."
+    },
+    {
+      "title": "Tanışma ve Mülakat",
+      "description": "Takım sorumlularıyla kısa bir tanışma görüşmesi yaparız. Amacımız seni tanımak ve doğru takıma yönlendirmek."
+    },
+    {
+      "title": "Takım Oryantasyonu",
+      "description": "Topluluğun işleyişini, atölye kurallarını ve aktif projeleri tanıtırız. Eğitim kampımıza katılırsın."
+    },
+    {
+      "title": "Atölye Çalışmaları",
+      "description": "Artık bir takımın parçasısın. Aktif projede görev alır, yarışma sürecine dahil olursun."
+    }
+  ],
+  "whyJoin": [
+    {
+      "title": "Gerçek mühendislik deneyimi",
+      "description": "Ders notlarında kalmayan; tasarlanan, üretilen, test edilen ve yarışan projelerde çalışırsın."
+    },
+    {
+      "title": "Ulusal ve uluslararası yarışmalar",
+      "description": "TEKNOFEST'ten NASA Space Apps'e kadar sahada ülkemizi ve üniversitemizi temsil edersin."
+    },
+    {
+      "title": "Sanayi ile temas",
+      "description": "TUSAŞ, TOGG, ASELSAN, TEI gibi kuruluşlara teknik geziler ve staj imkânları."
+    },
+    {
+      "title": "Kapsamlı eğitim programı",
+      "description": "Mekanik, elektronik ve yazılım alanlarında sertifikalı eğitim kampı ve mentörlük."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Hangi bölümden olmalıyım?",
+      "answer": "Bölüm şartı yok. Makine, mekatronik, elektrik-elektronik, bilgisayar, endüstri, metalurji ve diğer tüm bölümlerden üyelerimiz var. Tasarım, sosyal medya ve organizasyon alanlarında da ekip arkadaşlarına ihtiyacımız oluyor."
+    },
+    {
+      "question": "Hiç deneyimim yok, olur mu?",
+      "answer": "Olur. Her dönem yeni üyeler için temel ve orta düzey eğitim kampı düzenliyoruz. 2025-2026 döneminde 32 ders saatlik kampımızdan 61 üyemiz sertifika almaya hak kazandı."
+    },
+    {
+      "question": "Başvurular ne zaman açılıyor?",
+      "answer": "Başvurular genellikle güz döneminin başında açılır. Güncel duyuruları Instagram hesabımızdan (@btumatro) takip edebilirsin."
+    },
+    {
+      "question": "Ne kadar zaman ayırmam gerekir?",
+      "answer": "Takıma ve yarışma takvimine göre değişir. Dönem başında haftada birkaç saatlik atölye çalışması, yarışmaya yaklaşırken daha yoğun bir tempo söz konusu olur."
+    }
+  ]
+}

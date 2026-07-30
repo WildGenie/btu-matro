@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Section from '../../components/Section.astro';
+import TeamCard from '../../components/TeamCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+
+const teams = (await getCollection('teams'))
+  .filter((t) => t.data.status !== 'Arşiv')
+  .sort((a, b) => a.data.order - b.data.order);
+
+const categories = [...new Set(teams.map((t) => t.data.category))].sort((a, b) =>
+  a.localeCompare(b, 'tr')
+);
+---
+
+<BaseLayout
+  title="Takımlarımız"
+  description="ASHİNA, BÜRKÜT, ÇAĞRI, TİKA, İSS ve daha fazlası — MATRO bünyesinde faaliyet gösteren proje takımları ve çalışma alanları."
+>
+  <PageHero
+    eyebrow="Takımlarımız"
+    title="Farklı disiplinlerde, tek çatı altında"
+    description="MATRO bünyesinde aktif olarak faaliyet gösteren ve geleceğin teknolojilerini inşa eden proje takımlarımız."
+  >
+    <div class="reveal mt-8 flex flex-wrap gap-2" data-delay="180">
+      <span class="rounded-lg border border-white/12 px-3 py-1.5 font-mono text-xs text-mist-300">
+        {teams.length} takım
+      </span>
+      {
+        categories.map((c) => (
+          <span class="rounded-lg border border-white/12 px-3 py-1.5 font-mono text-xs text-mist-500">
+            {c}
+          </span>
+        ))
+      }
+    </div>
+  </PageHero>
+
+  <Section>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        teams.map((team, i) => (
+          <TeamCard
+            slug={team.id}
+            title={team.data.title}
+            subtitle={team.data.subtitle}
+            category={team.data.category}
+            status={team.data.status}
+            summary={team.data.summary}
+            image={team.data.image}
+            focus={team.data.focus}
+            delay={(i % 3) * 60}
+          />
+        ))
+      }
+    </div>
+  </Section>
+
+  <CtaBand
+    title="Hangi takımda yer almak istersin?"
+    description="Bölüm ayrımı yok. Başvurunda ilgilendiğin alanı belirt, seni doğru takıma yönlendirelim."
+    primary={{ label: 'Bize Katılın', href: '/bize-katilin' }}
+    secondary={{ label: 'Başarılarımız', href: '/basarilarimiz' }}
+  />
+</BaseLayout>

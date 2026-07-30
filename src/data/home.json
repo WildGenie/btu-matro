@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "eyebrow": "Bursa Teknik Üniversitesi · 2013'ten beri",
+    "title": "Geleceğin teknolojilerini bugün şekillendiriyoruz",
+    "description": "Bursa Teknik Üniversitesi'nin yenilikçi ve dinamik gücü MATRO olarak, \"Milli Teknoloji Hamlesi\" vizyonuyla 2013 yılından bu yana geleceğin teknolojilerine yön veriyoruz. İnsansız hava araçlarından sualtı sistemlerine, otonom tarımsal kara araçlarından çığır açan simülasyonlara, kablosuz haberleşmeden çevre ve enerji çözümlerine kadar geniş bir yelpazede projeler geliştiriyoruz.",
+    "primaryCta": { "label": "Projelerimizi Keşfedin", "href": "/takimlarimiz" },
+    "secondaryCta": { "label": "Bize Katılın", "href": "/bize-katilin" },
+    "tertiaryCta": { "label": "Sponsor Olun", "href": "/sponsorluk" }
+  },
+  "stats": [
+    { "value": 30, "suffix": "+", "label": "Ödül ve Derece", "note": "2019–2024 arası" },
+    { "value": 15, "suffix": "", "label": "Birincilik", "note": "Ulusal ve uluslararası" },
+    { "value": 258, "suffix": "+", "label": "Finalist Yarışmacı", "note": "Öğrenci" },
+    { "value": 32, "suffix": "", "label": "İlk 10'a Giren Takım", "note": "2020–2024" },
+    { "value": 50, "suffix": "+", "label": "Geliştirilen Proje", "note": "Farklı disiplinlerde" },
+    { "value": 125, "suffix": "", "label": "Staj İmkânı", "note": "Üyelerimize" }
+  ],
+  "video": {
+    "title": "2024 Yılı MATRO'nun Hikayesi: Hiç Bitmesin Bu Masal",
+    "youtubeId": "U5Ty6Af_H40",
+    "description": "Atölye çalışmalarımızdan yarışma alanlarına, uykusuz gecelerden zafer anlarına kadar MATRO ailesinin ilham veren 2024 yılı yolculuğunu izleyin."
+  },
+  "highlights": {
+    "eyebrow": "Öne Çıkanlar",
+    "title": "Son dönemde neler başardık?",
+    "description": "Topluluğumuz 2020-2024 yılları arasında 32 takımı ile ilk 10'a girdi, 258 yarışmacı ile finalist oldu ve 21'den fazla derece ile özel ödül kazandı."
+  }
+}

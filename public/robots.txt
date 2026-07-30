@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wildgenie.github.io/btu-matro/sitemap-index.xml

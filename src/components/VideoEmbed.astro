@@ -1,0 +1,60 @@
+---
+interface Props {
+  youtubeId: string;
+  title: string;
+}
+const { youtubeId, title } = Astro.props;
+---
+
+<div
+  class="video-embed group relative aspect-video w-full cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-ink-850"
+  data-id={youtubeId}
+  data-title={title}
+>
+  <img
+    src={`https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg`}
+    alt={title}
+    loading="lazy"
+    decoding="async"
+    class="h-full w-full object-cover opacity-80 transition-[opacity,transform] duration-500 group-hover:scale-[1.02] group-hover:opacity-100"
+  />
+  <div class="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-ink-950/10 to-transparent"></div>
+
+  <button
+    type="button"
+    class="absolute inset-0 flex items-center justify-center"
+    aria-label={`Videoyu oynat: ${title}`}
+  >
+    <span
+      class="flex h-16 w-16 items-center justify-center rounded-full bg-volt-400 text-ink-950 shadow-lg shadow-volt-500/30 transition-transform duration-300 group-hover:scale-110"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M8 5.5v13l11-6.5-11-6.5Z"></path>
+      </svg>
+    </span>
+  </button>
+
+  <p class="pointer-events-none absolute right-5 bottom-5 left-5 text-sm font-semibold text-mist-100 md:text-base">
+    {title}
+  </p>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.video-embed').forEach((box) => {
+    box.addEventListener('click', () => {
+      const id = box.dataset.id;
+      if (!id || box.dataset.loaded) return;
+      box.dataset.loaded = 'true';
+      box.innerHTML = '';
+      box.classList.remove('cursor-pointer');
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.title = box.dataset.title ?? 'Video';
+      iframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.className = 'absolute inset-0 h-full w-full';
+      box.appendChild(iframe);
+    });
+  });
+</script>

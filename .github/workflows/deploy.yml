@@ -1,0 +1,42 @@
+name: Siteyi Yayınla (GitHub Pages)
+
+on:
+  # main dalına her gönderimde (içerik panelinden yapılan kayıtlar dahil) çalışır
+  push:
+    branches: [main]
+  # Actions sekmesinden elle de çalıştırılabilir
+  workflow_dispatch:
+
+# Depoyu okuma ve GitHub Pages'e yayınlama izinleri
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Aynı anda tek bir yayın işlemi çalışsın; yenisi geldiğinde eskisi beklesin
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Derle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu indir
+        uses: actions/checkout@v5
+
+      - name: Kur, derle ve yükle
+        uses: withastro/action@v6
+
+  deploy:
+    name: Yayınla
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: GitHub Pages'e yayınla
+        id: deployment
+        uses: actions/deploy-pages@v5

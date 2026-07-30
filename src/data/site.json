@@ -1,0 +1,33 @@
+{
+  "shortName": "MATRO",
+  "fullName": "Makine Teknolojileri Robot ve Otomasyon Topluluğu",
+  "university": "Bursa Teknik Üniversitesi",
+  "foundedYear": 2013,
+  "metaDescription": "Bursa Teknik Üniversitesi MATRO; insansız hava araçları, sualtı sistemleri, otonom kara araçları, kablosuz haberleşme ve çevre-enerji teknolojileri alanlarında projeler geliştiren öğrenci topluluğudur.",
+  "contact": {
+    "emails": ["matroiletisim@gmail.com", "matrobtu@gmail.com"],
+    "address": "Bursa Teknik Üniversitesi, Mimar Sinan Yerleşkesi, Mimar Sinan Mah. Mimar Sinan Bulvarı Eflak Cad. No:177, 16310 Yıldırım / BURSA",
+    "workshop": "Mühendislik Fakültesi B Blok Zemin Kat — MATRO Atölyesi",
+    "mapQuery": "Bursa Teknik Üniversitesi Mimar Sinan Yerleşkesi"
+  },
+  "people": [
+    {
+      "role": "Topluluk Danışman Mühendisi",
+      "name": "Muhammed ATAMAN",
+      "phone": "+90 546 204 8189",
+      "email": "muhatmn@hotmail.com"
+    },
+    {
+      "role": "Topluluk Başkanı",
+      "name": "[Güncel başkanın adı soyadı]",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "social": [
+    { "platform": "Instagram", "url": "https://www.instagram.com/btumatro/" },
+    { "platform": "LinkedIn", "url": "https://www.linkedin.com/company/btumatro" },
+    { "platform": "YouTube", "url": "https://www.youtube.com/watch?v=U5Ty6Af_H40" },
+    { "platform": "Facebook", "url": "https://www.facebook.com/btumatro" }
+  ]
+}

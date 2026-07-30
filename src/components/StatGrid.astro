@@ -1,0 +1,70 @@
+---
+interface Stat {
+  value: number;
+  suffix?: string;
+  label: string;
+  note?: string;
+}
+interface Props {
+  stats: Stat[];
+}
+const { stats } = Astro.props;
+---
+
+<div class="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-3">
+  {
+    stats.map((stat, i) => (
+      <div class="reveal bg-ink-900 p-6 md:p-7" data-delay={i * 60}>
+        <div class="flex items-baseline gap-0.5">
+          <span
+            class="counter font-mono text-3xl font-bold tracking-tight text-mist-100 tabular-nums md:text-4xl"
+            data-target={stat.value}
+          >
+            0
+          </span>
+          {stat.suffix && (
+            <span class="font-mono text-2xl font-bold text-volt-400 md:text-3xl">{stat.suffix}</span>
+          )}
+        </div>
+        <p class="mt-2 text-sm font-medium text-mist-100">{stat.label}</p>
+        {stat.note && <p class="mt-0.5 text-xs text-mist-500">{stat.note}</p>}
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  const counters = document.querySelectorAll<HTMLElement>('.counter');
+  if (counters.length) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const run = (el: HTMLElement) => {
+      const target = Number(el.dataset.target ?? 0);
+      if (reduce || target === 0) {
+        el.textContent = String(target);
+        return;
+      }
+      const duration = 1400;
+      const start = performance.now();
+      const tick = (now: number) => {
+        const p = Math.min((now - start) / duration, 1);
+        // easeOutExpo
+        const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+        el.textContent = String(Math.round(target * eased));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          run(entry.target as HTMLElement);
+          io.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    counters.forEach((el) => io.observe(el));
+  }
+</script>

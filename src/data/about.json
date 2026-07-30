@@ -1,0 +1,69 @@
+{
+  "intro": {
+    "eyebrow": "Hakkımızda",
+    "title": "Biz Kimiz?",
+    "body": "Bursa Teknik Üniversitesi bünyesinde 2013 yılında kurulan Makine Teknolojileri Robot ve Otomasyon Topluluğu (MATRO), ülkemizin \"Milli Teknoloji Hamlesi\" hedefinin ışığında, teknoloji alanındaki ilerleyişinde pay sahibi olmak için çalışmalarını sürdüren dinamik bir öğrenci topluluğudur. Temel felsefemiz, teknolojiye olan tutkumuzu geleceğin mühendisleriyle birleştirerek ülkemizin teknolojik bağımsızlığına katkı sağlamaktır.\n\nBaşta insansız hava araçları, sualtı robotları, kara araçları, kablosuz haberleşme sistemleri, çevre ve enerji teknolojileri ile akıllı simülasyonlar olmak üzere farklı disiplinlerde projeler geliştiriyor, üyelerimize pratik mühendislik deneyimi kazandırıyor ve onları profesyonel hayata hazırlıyoruz."
+  },
+  "vision": "Ülkemizin yarınlarını kuracağının bilincinde, mühendis adaylarını yetiştirmenin öneminin farkındalığı içerisinde, \"daima gelişmek\" hedefiyle teknolojik alanlardaki çalışmalarını sürdürerek; inandıkları ilkeler doğrultusunda yaptıklarıyla anılan, geleceğin teknolojilerine yön veren ve topluma örnek olan bir topluluk olmaktır.",
+  "mission": "Robotik, havacılık, savunma, çevre-enerji ve akıllı sistem teknolojileri alanlarında; gereksinimler doğrultusunda yenilikçi ve özgün fikirler üretmektir. Faaliyet gösterdiği disiplinlerde başarılar elde ederek Türkiye'nin teknolojik alanda dışa bağımlılığını azaltmasına katkıda bulunmaktır.",
+  "values": [
+    {
+      "title": "İnovasyon ve Yaratıcılık",
+      "description": "Sürekli yeni fikirlerin peşinde koşar, kalıpların dışında düşünür, karşılaştığımız problemlere özgün ve uygulanabilir çözümler üretiriz."
+    },
+    {
+      "title": "Takım Çalışması ve İşbirliği",
+      "description": "Başarının, farklı yeteneklerin ve fikirlerin bir araya geldiği uyumlu bir takım ruhuyla mümkün olduğuna inanırız."
+    },
+    {
+      "title": "Sürekli Öğrenme ve Gelişim",
+      "description": "\"Daima gelişmek\" ilkesiyle bilgilerimizi güncel tutmayı ve yaşam boyu öğrenme felsefesini benimseriz."
+    },
+    {
+      "title": "Milli Bilinç ve Sorumluluk",
+      "description": "Projelerimizde yerli ve milli çözümlere öncelik vererek ülkemizin teknolojik bağımsızlığına hizmet ederiz."
+    }
+  ],
+  "timeline": [
+    {
+      "year": "2013",
+      "title": "MATRO kuruldu",
+      "description": "Bursa Teknik Üniversitesi bünyesinde Makine Teknolojileri Robot ve Otomasyon Topluluğu kuruldu."
+    },
+    {
+      "year": "2019",
+      "title": "İlk TEKNOFEST dereceleri",
+      "description": "Tarım Teknolojileri'nde Türkiye 3.lüğü ve İnsansız Su Altı Sistemleri'nde Türkiye 7.liği kazanıldı."
+    },
+    {
+      "year": "2020",
+      "title": "Uçan Araba'da Türkiye şampiyonluğu",
+      "description": "TEKNOFEST Baykar Uçan Araba Simülasyon kategorisinde Türkiye 1.liği elde edildi."
+    },
+    {
+      "year": "2021",
+      "title": "Uluslararası arenaya açılım",
+      "description": "Renault Twizy Contest'te Dünya 4.lüğü ve Türkiye 1.liği; TEKNOFEST'te üç ayrı kategoride derece."
+    },
+    {
+      "year": "2022",
+      "title": "Dünya finali",
+      "description": "Singapur SAUVC Otonom Sualtı Aracı yarışmasında dünya finalisti olundu."
+    },
+    {
+      "year": "2023",
+      "title": "Girişimcilik başarısı",
+      "description": "INNOSENS Robot Teknolojileri ile TEKNOFEST T3 Girişimcilik Yarışması'nda Türkiye 1.liği ve 75.000 TL ödül."
+    },
+    {
+      "year": "2024",
+      "title": "Yapay zekâ ve uzay",
+      "description": "NASA Space Apps Challenge Bölge 1.liği ve GDG Yapay Zekâ Hackathonu Türkiye 1.liği."
+    },
+    {
+      "year": "2025–2026",
+      "title": "Yeni takımlar ve eğitim kampı",
+      "description": "ASHİNA-H, ASHİNA İnovasyon ve Çevre-Enerji takımları kuruldu; 32 ders saatlik eğitim kampından 61 mezun verildi."
+    }
+  ]
+}

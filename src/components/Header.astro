@@ -1,0 +1,117 @@
+---
+import Logo from './Logo.astro';
+import { url, NAV_LINKS } from '../lib/utils';
+
+const current = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isActive = (href: string) => {
+  const target = url(href).replace(/\/+$/, '');
+  return current === target || current.startsWith(`${target}/`);
+};
+---
+
+<header
+  id="site-header"
+  class="fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300 border-b border-transparent"
+>
+  <div class="container-matro flex h-[4.5rem] items-center justify-between gap-4">
+    <a href={url('/')} class="shrink-0" aria-label="MATRO ana sayfa">
+      <Logo />
+    </a>
+
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Ana menü">
+      {
+        NAV_LINKS.map((link) => (
+          <a
+            href={url(link.href)}
+            aria-current={isActive(link.href) ? 'page' : undefined}
+            class:list={[
+              'rounded-lg px-3 py-2 text-[0.875rem] font-medium transition-colors',
+              isActive(link.href)
+                ? 'text-volt-300 bg-volt-400/10'
+                : 'text-mist-300 hover:text-mist-100 hover:bg-white/5',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a
+        href={url('/bize-katilin')}
+        class="hidden rounded-lg bg-volt-400 px-4 py-2 text-[0.85rem] font-semibold text-ink-950 transition-transform hover:scale-[1.03] sm:inline-block"
+      >
+        Bize Katılın
+      </a>
+
+      <button
+        type="button"
+        id="nav-toggle"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/12 text-mist-100 lg:hidden"
+        aria-label="Menüyü aç"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" class="nav-open-icon"></path>
+          <path d="M6 6l12 12M18 6L6 18" class="nav-close-icon hidden"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="mobile-nav"
+    class="hidden border-t border-white/10 bg-ink-950/97 backdrop-blur-xl lg:hidden"
+  >
+    <nav class="container-matro flex flex-col gap-1 py-4" aria-label="Mobil menü">
+      {
+        NAV_LINKS.map((link) => (
+          <a
+            href={url(link.href)}
+            aria-current={isActive(link.href) ? 'page' : undefined}
+            class:list={[
+              'rounded-lg px-3 py-3 text-[0.95rem] font-medium transition-colors',
+              isActive(link.href) ? 'text-volt-300 bg-volt-400/10' : 'text-mist-300 hover:bg-white/5',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href={url('/bize-katilin')}
+        class="mt-2 rounded-lg bg-volt-400 px-3 py-3 text-center text-[0.95rem] font-semibold text-ink-950"
+      >
+        Bize Katılın
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const toggle = document.getElementById('nav-toggle');
+  const panel = document.getElementById('mobile-nav');
+
+  const onScroll = () => {
+    if (!header) return;
+    const scrolled = window.scrollY > 12;
+    header.classList.toggle('bg-ink-950/85', scrolled);
+    header.classList.toggle('backdrop-blur-xl', scrolled);
+    header.classList.toggle('border-white/10', scrolled);
+    header.classList.toggle('border-transparent', !scrolled);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  toggle?.addEventListener('click', () => {
+    if (!panel) return;
+    const open = panel.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.setAttribute('aria-label', open ? 'Menüyü aç' : 'Menüyü kapat');
+    toggle.querySelector('.nav-open-icon')?.classList.toggle('hidden', !open);
+    toggle.querySelector('.nav-close-icon')?.classList.toggle('hidden', open);
+  });
+</script>

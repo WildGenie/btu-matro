@@ -1,0 +1,195 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import StatGrid from '../components/StatGrid.astro';
+import TeamCard from '../components/TeamCard.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
+import CtaBand from '../components/CtaBand.astro';
+import home from '../data/home.json';
+import achievements from '../data/achievements.json';
+import sponsors from '../data/sponsors.json';
+import { url, degreeTone } from '../lib/utils';
+
+const teams = (await getCollection('teams'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 6);
+
+const featured = achievements.items.filter((a) => a.featured).slice(0, 6);
+---
+
+<BaseLayout>
+  <!-- ============ HERO ============ -->
+  <section class="relative overflow-hidden">
+    <div class="grid-bg absolute inset-0" aria-hidden="true"></div>
+    <div
+      class="absolute -top-52 left-1/2 h-[34rem] w-[60rem] -translate-x-1/2 rounded-full bg-volt-500/14 blur-[130px]"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="absolute -right-40 bottom-0 h-[22rem] w-[22rem] rounded-full bg-ember-500/8 blur-[110px]"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="container-matro relative flex min-h-[calc(100svh-4.5rem)] flex-col justify-center py-20">
+      <p class="eyebrow reveal">{home.hero.eyebrow}</p>
+
+      <h1
+        class="reveal mt-5 max-w-4xl text-[2.6rem] leading-[1.05] font-bold tracking-tight sm:text-6xl lg:text-7xl"
+        data-delay="70"
+      >
+        <span class="text-gradient">{home.hero.title}</span>
+      </h1>
+
+      <p class="reveal mt-7 max-w-2xl text-base leading-relaxed text-mist-300 md:text-lg" data-delay="140">
+        {home.hero.description}
+      </p>
+
+      <div class="reveal mt-10 flex flex-wrap gap-3" data-delay="210">
+        <a
+          href={url(home.hero.primaryCta.href)}
+          class="rounded-xl bg-volt-400 px-6 py-3.5 text-sm font-semibold text-ink-950 transition-transform hover:scale-[1.03]"
+        >
+          {home.hero.primaryCta.label}
+        </a>
+        <a
+          href={url(home.hero.secondaryCta.href)}
+          class="rounded-xl border border-white/15 px-6 py-3.5 text-sm font-semibold text-mist-100 transition-colors hover:border-volt-400/50 hover:text-volt-300"
+        >
+          {home.hero.secondaryCta.label}
+        </a>
+        <a
+          href={url(home.hero.tertiaryCta.href)}
+          class="rounded-xl px-6 py-3.5 text-sm font-semibold text-mist-300 transition-colors hover:text-volt-300"
+        >
+          {home.hero.tertiaryCta.label} →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RAKAMLARLA MATRO ============ -->
+  <Section eyebrow="Rakamlarla MATRO" title="2013'ten bugüne biriken emek">
+    <div class="mt-10">
+      <StatGrid stats={home.stats} />
+    </div>
+  </Section>
+
+  <!-- ============ VİDEO ============ -->
+  <Section eyebrow="Tanıtım Videosu" title={home.video.title} description={home.video.description}>
+    <div class="reveal mt-10">
+      <VideoEmbed youtubeId={home.video.youtubeId} title={home.video.title} />
+    </div>
+  </Section>
+
+  <!-- ============ TAKIMLAR ============ -->
+  <Section
+    eyebrow="Takımlarımız"
+    title="Farklı disiplinlerde, tek çatı altında"
+    description="İnsansız hava araçlarından sualtı sistemlerine, otonom kara araçlarından kablosuz haberleşmeye kadar geniş bir yelpazede proje geliştiriyoruz."
+  >
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        teams.map((team, i) => (
+          <TeamCard
+            slug={team.id}
+            title={team.data.title}
+            subtitle={team.data.subtitle}
+            category={team.data.category}
+            status={team.data.status}
+            summary={team.data.summary}
+            image={team.data.image}
+            focus={team.data.focus}
+            delay={i * 60}
+          />
+        ))
+      }
+    </div>
+
+    <div class="reveal mt-8">
+      <a
+        href={url('/takimlarimiz')}
+        class="inline-flex items-center gap-2 text-sm font-semibold text-volt-400 hover:text-volt-300"
+      >
+        Tüm takımları gör
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6"></path>
+        </svg>
+      </a>
+    </div>
+  </Section>
+
+  <!-- ============ ÖNE ÇIKAN BAŞARILAR ============ -->
+  <Section
+    eyebrow={home.highlights.eyebrow}
+    title={home.highlights.title}
+    description={home.highlights.description}
+  >
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        featured.map((a, i) => (
+          <article class="card reveal p-5" data-delay={i * 55}>
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-mist-500">{a.year}</span>
+              <svg class="h-4 w-4 text-medal-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2 9.2 8.6 2 9.2l5.5 4.7L5.8 21 12 17.3 18.2 21l-1.7-7.1L22 9.2l-7.2-.6L12 2Z" />
+              </svg>
+            </div>
+            <h3 class={`mt-3 text-base font-bold ${degreeTone(a.degree)}`}>{a.degree}</h3>
+            <p class="mt-2 text-sm font-medium text-mist-100">{a.competition}</p>
+            <p class="mt-1 text-xs text-mist-500">{a.category}</p>
+            {a.team && <p class="mt-2 font-mono text-[0.7rem] text-volt-400">{a.team}</p>}
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="reveal mt-8">
+      <a
+        href={url('/basarilarimiz')}
+        class="inline-flex items-center gap-2 text-sm font-semibold text-volt-400 hover:text-volt-300"
+      >
+        Tüm dereceler ve ödüller
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6"></path>
+        </svg>
+      </a>
+    </div>
+  </Section>
+
+  <!-- ============ SPONSORLAR ============ -->
+  <Section eyebrow="Destekçilerimiz" title="Bizi mümkün kılanlar" align="center">
+    <ul class="mt-10 flex flex-wrap items-center justify-center gap-2.5">
+      {
+        sponsors.current.map((s, i) => (
+          <li
+            class="reveal rounded-xl border border-white/10 bg-ink-900 px-4 py-2.5 text-sm font-medium text-mist-300"
+            data-delay={i * 30}
+          >
+            {s.name}
+          </li>
+        ))
+      }
+    </ul>
+    <div class="reveal mt-8 text-center">
+      <a
+        href={url('/sponsorluk')}
+        class="inline-flex items-center gap-2 text-sm font-semibold text-volt-400 hover:text-volt-300"
+      >
+        Sponsorluk paketlerini incele
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6"></path>
+        </svg>
+      </a>
+    </div>
+  </Section>
+
+  <CtaBand
+    title="Sen de bu hikâyenin parçası ol"
+    description="Teknolojiye meraklı, sorumluluk sahibi ve takım çalışmasına inanan tüm BTÜ öğrencilerini aramıza bekliyoruz."
+    primary={{ label: 'Bize Katılın', href: '/bize-katilin' }}
+    secondary={{ label: 'İletişime Geçin', href: '/iletisim' }}
+  />
+</BaseLayout>

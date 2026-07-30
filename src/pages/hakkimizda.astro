@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import CtaBand from '../components/CtaBand.astro';
+import about from '../data/about.json';
+import site from '../data/site.json';
+---
+
+<BaseLayout
+  title="Hakkımızda"
+  description="MATRO; 2013'te Bursa Teknik Üniversitesi'nde kurulan, Milli Teknoloji Hamlesi vizyonuyla çalışan robotik ve otomasyon topluluğudur. Vizyonumuz, misyonumuz ve değerlerimiz."
+>
+  <PageHero eyebrow={about.intro.eyebrow} title={about.intro.title} />
+
+  <Section>
+    <div class="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
+      <div class="reveal prose-matro max-w-none">
+        {about.intro.body.split('\n\n').map((p) => <p>{p}</p>)}
+      </div>
+
+      <aside class="reveal card h-fit p-6" data-delay="80">
+        <h2 class="font-mono text-[0.65rem] tracking-[0.2em] text-mist-500 uppercase">Künye</h2>
+        <dl class="mt-4 space-y-4 text-sm">
+          <div>
+            <dt class="text-mist-500">Kuruluş</dt>
+            <dd class="mt-0.5 font-semibold text-mist-100">{site.foundedYear}</dd>
+          </div>
+          <div>
+            <dt class="text-mist-500">Üniversite</dt>
+            <dd class="mt-0.5 font-semibold text-mist-100">{site.university}</dd>
+          </div>
+          <div>
+            <dt class="text-mist-500">Tam adı</dt>
+            <dd class="mt-0.5 font-semibold text-mist-100">{site.fullName}</dd>
+          </div>
+          <div>
+            <dt class="text-mist-500">Atölye</dt>
+            <dd class="mt-0.5 font-semibold text-mist-100">{site.contact.workshop}</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </Section>
+
+  <!-- Vizyon & Misyon -->
+  <Section class="pt-0">
+    <div class="grid gap-5 md:grid-cols-2">
+      <article class="card reveal p-7 md:p-9">
+        <span class="eyebrow">Vizyonumuz</span>
+        <p class="mt-4 leading-relaxed text-mist-300">{about.vision}</p>
+      </article>
+      <article class="card reveal p-7 md:p-9" data-delay="80">
+        <span class="eyebrow">Misyonumuz</span>
+        <p class="mt-4 leading-relaxed text-mist-300">{about.mission}</p>
+      </article>
+    </div>
+  </Section>
+
+  <!-- Değerler -->
+  <Section
+    eyebrow="Temel Değerlerimiz"
+    title="Bizi biz yapan dört ilke"
+    class="pt-0"
+  >
+    <div class="mt-10 grid gap-4 sm:grid-cols-2">
+      {
+        about.values.map((v, i) => (
+          <article class="card reveal p-6" data-delay={i * 60}>
+            <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-volt-400/12 font-mono text-sm font-bold text-volt-300">
+              {String(i + 1).padStart(2, '0')}
+            </div>
+            <h3 class="mt-4 text-base font-bold text-mist-100">{v.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-mist-500">{v.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <!-- Tarihçe -->
+  <Section
+    eyebrow="Tarihçe"
+    title="Yolculuğumuz"
+    description="Kuruluşumuzdan bugüne dönüm noktalarımız."
+    class="pt-0"
+  >
+    <ol class="relative mt-10 border-l border-white/12 pl-8">
+      {
+        about.timeline.map((t, i) => (
+          <li class="reveal relative pb-10 last:pb-0" data-delay={i * 50}>
+            <span
+              class="absolute top-1.5 -left-[2.15rem] flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 border-volt-400 bg-ink-950"
+              aria-hidden="true"
+            />
+            <span class="font-mono text-xs tracking-wider text-volt-400">{t.year}</span>
+            <h3 class="mt-1.5 text-lg font-bold tracking-tight text-mist-100">{t.title}</h3>
+            <p class="mt-1.5 max-w-2xl text-sm leading-relaxed text-mist-500">{t.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </Section>
+
+  <CtaBand
+    title="Takımlarımızı yakından tanıyın"
+    description="On iki farklı proje takımıyla havacılıktan sualtına, tarımdan haberleşmeye kadar geniş bir alanda çalışıyoruz."
+    primary={{ label: 'Takımlarımız', href: '/takimlarimiz' }}
+    secondary={{ label: 'Başarılarımız', href: '/basarilarimiz' }}
+  />
+</BaseLayout>

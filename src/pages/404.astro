@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url, NAV_LINKS } from '../lib/utils';
+---
+
+<BaseLayout title="Sayfa bulunamadı" description="Aradığınız sayfa bulunamadı.">
+  <section class="relative overflow-hidden">
+    <div class="grid-bg absolute inset-0" aria-hidden="true"></div>
+    <div
+      class="absolute -top-40 left-1/2 h-[24rem] w-[40rem] -translate-x-1/2 rounded-full bg-volt-500/10 blur-[110px]"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="container-matro relative flex min-h-[70vh] flex-col items-center justify-center py-24 text-center">
+      <p class="font-mono text-6xl font-bold text-white/10 md:text-8xl">404</p>
+      <h1 class="mt-4 text-3xl font-bold tracking-tight md:text-4xl">Bu sayfa telemetriden düştü</h1>
+      <p class="mt-4 max-w-md leading-relaxed text-mist-300">
+        Aradığın sayfayı bulamadık. Adres değişmiş veya sayfa kaldırılmış olabilir.
+      </p>
+
+      <a
+        href={url('/')}
+        class="mt-8 rounded-xl bg-volt-400 px-6 py-3.5 text-sm font-semibold text-ink-950 transition-transform hover:scale-[1.03]"
+      >
+        Anasayfaya dön
+      </a>
+
+      <nav class="mt-10 flex flex-wrap justify-center gap-2" aria-label="Site bölümleri">
+        {
+          NAV_LINKS.map((link) => (
+            <a
+              href={url(link.href)}
+              class="rounded-lg border border-white/12 px-3 py-1.5 text-sm text-mist-300 transition-colors hover:border-volt-400/50 hover:text-volt-300"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

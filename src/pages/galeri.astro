@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import gallery from '../data/gallery.json';
+import { media } from '../lib/utils';
+
+const images = gallery.images.filter((img) => Boolean(img.image?.trim()));
+---
+
+<BaseLayout
+  title="Galeri"
+  description="MATRO atölyesinden, TEKNOFEST yarışma alanlarından, teknik gezilerden ve ödül törenlerinden kareler."
+>
+  <PageHero eyebrow="Galeri" title="Atölyeden sahaya" description={gallery.intro} />
+
+  <Section>
+    {
+      images.length > 0 ? (
+        <div class="columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
+          {images.map((img, i) => (
+            <figure class="card reveal group overflow-hidden break-inside-avoid" data-delay={(i % 3) * 55}>
+              <img
+                src={media(img.image)!}
+                alt={img.caption || 'MATRO galeri görseli'}
+                loading="lazy"
+                decoding="async"
+                class="w-full transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+              {(img.caption || img.category) && (
+                <figcaption class="border-t border-white/8 p-4">
+                  {img.category && (
+                    <span class="font-mono text-[0.62rem] tracking-[0.15em] text-volt-400 uppercase">
+                      {img.category}
+                    </span>
+                  )}
+                  {img.caption && <p class="mt-1 text-sm text-mist-300">{img.caption}</p>}
+                </figcaption>
+              )}
+            </figure>
+          ))}
+        </div>
+      ) : (
+        <div class="card grid-bg flex flex-col items-center justify-center px-6 py-20 text-center">
+          <svg
+            class="h-10 w-10 text-white/15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <rect x="3" y="4" width="18" height="16" rx="2" />
+            <circle cx="8.5" cy="9.5" r="1.5" />
+            <path d="m4 17 5-5 4 4 3-3 4 4" />
+          </svg>
+          <h2 class="mt-5 text-lg font-bold text-mist-100">Galeri henüz boş</h2>
+          <p class="mt-2 max-w-md text-sm leading-relaxed text-mist-500">
+            Fotoğrafları eklemek için içerik paneline gir, <strong class="text-mist-300">Galeri</strong>{' '}
+            bölümünden görsel yükle ve kaydet. Yüklediğin görseller birkaç dakika içinde burada
+            yayına girer.
+          </p>
+        </div>
+      )
+    }
+  </Section>
+</BaseLayout>

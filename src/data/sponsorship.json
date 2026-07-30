@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "eyebrow": "Sponsorluk",
+    "title": "Geleceğin mühendislerine bugünden yatırım yapın",
+    "description": "MATRO'ya verdiğiniz destek; ulusal ve uluslararası yarışmalarda ülkemizi temsil eden takımların malzemesine, atölyesine ve eğitimine dönüşür. Karşılığında markanız, Türkiye'nin en büyük teknoloji festivallerinde binlerce genç mühendisin karşısına çıkar."
+  },
+  "packages": [
+    {
+      "name": "Platin",
+      "range": "101.000 TL ve üzeri",
+      "highlight": true,
+      "benefits": [
+        "Tüm takım araçlarında en büyük boyutta logo",
+        "Web sitesi ve sosyal medyada ana sponsor görünürlüğü",
+        "Atölye ve yarışma alanında tanıtım standı hakkı",
+        "Öncelikli staj ve işe alım havuzu erişimi",
+        "Kurumsal tanıtım videosunda yer alma"
+      ]
+    },
+    {
+      "name": "Altın",
+      "range": "51.000 TL – 100.000 TL",
+      "highlight": false,
+      "benefits": [
+        "Takım araçlarında büyük boyutta logo",
+        "Web sitesi ve sosyal medya paylaşımlarında yer alma",
+        "Etkinlik ve seminerlerde marka görünürlüğü",
+        "Staj ve işe alım havuzu erişimi"
+      ]
+    },
+    {
+      "name": "Gümüş",
+      "range": "26.000 TL – 50.000 TL",
+      "highlight": false,
+      "benefits": [
+        "Takım araçlarında logo",
+        "Web sitesinde sponsor listesinde yer alma",
+        "Sosyal medyada teşekkür paylaşımı"
+      ]
+    },
+    {
+      "name": "Bronz",
+      "range": "11.000 TL – 25.000 TL",
+      "highlight": false,
+      "benefits": [
+        "Web sitesinde sponsor listesinde yer alma",
+        "Sosyal medyada teşekkür paylaşımı",
+        "Yıllık faaliyet raporunda anılma"
+      ]
+    }
+  ],
+  "supportTypes": [
+    { "title": "Nakit Destek", "description": "Malzeme, üretim ve yarışma katılım giderlerinde doğrudan kullanılır." },
+    { "title": "Malzeme Desteği", "description": "Elektronik komponent, hammadde, kompozit ve mekanik parça temini." },
+    { "title": "Hizmet Desteği", "description": "Lazer kesim, CNC işleme, kalıp, kaplama, lojistik ve barınma desteği." },
+    { "title": "Ürün / Lisans Desteği", "description": "Mühendislik yazılımı lisansı, test cihazı veya ekipman tahsisi." }
+  ],
+  "cta": {
+    "title": "Sponsor olmak ister misiniz?",
+    "description": "Sponsorluk dosyamızı ve bu yılki proje hedeflerimizi içeren sunumumuzu sizinle paylaşalım.",
+    "buttonLabel": "Sponsorluk için iletişime geçin"
+  }
+}

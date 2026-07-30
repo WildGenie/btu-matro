@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import SocialIcon from '../components/SocialIcon.astro';
+import site from '../data/site.json';
+
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.contact.mapQuery)}&output=embed`;
+const people = site.people.filter((p) => p.name && !p.name.startsWith('['));
+---
+
+<BaseLayout
+  title="İletişim"
+  description="MATRO iletişim bilgileri, atölye konumu, sosyal medya hesapları ve yetkili kişiler."
+>
+  <PageHero
+    eyebrow="İletişim"
+    title="Bize ulaşın"
+    description="Sponsorluk, işbirliği, basın veya üyelik — hangi konuda olursa olsun size en kısa sürede dönüş yapıyoruz."
+  />
+
+  <Section>
+    <div class="grid gap-5 lg:grid-cols-3">
+      <!-- E-posta -->
+      <article class="card reveal p-6">
+        <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-volt-400/12 text-volt-300">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="2.5" y="5" width="19" height="14" rx="2"></rect>
+            <path d="m3 7 9 6 9-6" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <h2 class="mt-4 text-base font-bold text-mist-100">E-posta</h2>
+        <ul class="mt-3 space-y-1.5">
+          {
+            site.contact.emails.map((mail) => (
+              <li>
+                <a href={`mailto:${mail}`} class="text-sm text-mist-300 transition-colors hover:text-volt-300">
+                  {mail}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+
+      <!-- Adres -->
+      <article class="card reveal p-6" data-delay="60">
+        <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-volt-400/12 text-volt-300">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z" stroke-linejoin="round"></path>
+            <circle cx="12" cy="10" r="2.5"></circle>
+          </svg>
+        </div>
+        <h2 class="mt-4 text-base font-bold text-mist-100">Adres</h2>
+        <p class="mt-3 text-sm leading-relaxed text-mist-300">{site.contact.address}</p>
+        <p class="mt-2 text-sm leading-relaxed text-mist-500">{site.contact.workshop}</p>
+      </article>
+
+      <!-- Sosyal medya -->
+      <article class="card reveal p-6" data-delay="120">
+        <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-volt-400/12 text-volt-300">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <h2 class="mt-4 text-base font-bold text-mist-100">Sosyal Medya</h2>
+        <ul class="mt-3 space-y-2">
+          {
+            site.social.map((s) => (
+              <li>
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 text-sm text-mist-300 transition-colors hover:text-volt-300"
+                >
+                  <SocialIcon platform={s.platform} class="h-4 w-4" />
+                  {s.platform}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+    </div>
+  </Section>
+
+  <!-- Yetkililer -->
+  {
+    people.length > 0 && (
+      <Section eyebrow="Yetkililer" title="Doğrudan iletişim" class="pt-0">
+        <div class="mt-10 grid gap-4 sm:grid-cols-2">
+          {people.map((p, i) => (
+            <article class="card reveal p-6" data-delay={i * 60}>
+              <span class="font-mono text-[0.65rem] tracking-[0.15em] text-volt-400 uppercase">
+                {p.role}
+              </span>
+              <h3 class="mt-2 text-lg font-bold tracking-tight text-mist-100">{p.name}</h3>
+              <ul class="mt-3 space-y-1.5 text-sm">
+                {p.phone && (
+                  <li>
+                    <a
+                      href={`tel:${p.phone.replace(/\s/g, '')}`}
+                      class="text-mist-300 transition-colors hover:text-volt-300"
+                    >
+                      {p.phone}
+                    </a>
+                  </li>
+                )}
+                {p.email && (
+                  <li>
+                    <a href={`mailto:${p.email}`} class="text-mist-300 transition-colors hover:text-volt-300">
+                      {p.email}
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </Section>
+    )
+  }
+
+  <!-- Harita -->
+  <Section eyebrow="Konum" title="Atölyemize bekleriz" class="pt-0">
+    <div class="reveal mt-10 overflow-hidden rounded-2xl border border-white/10">
+      <iframe
+        src={mapSrc}
+        title="MATRO atölyesi konumu — Bursa Teknik Üniversitesi Mimar Sinan Yerleşkesi"
+        width="100%"
+        height="420"
+        style="border:0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </Section>
+</BaseLayout>

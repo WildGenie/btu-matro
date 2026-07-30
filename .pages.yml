@@ -1,0 +1,466 @@
+## ============================================================
+##  MATRO — İçerik Yönetim Paneli Ayarları (Pages CMS)
+## ============================================================
+##  Bu dosya, https://app.pagescms.org adresindeki düzenleme
+##  panelinin nasıl görüneceğini belirler.
+##
+##  Panele girmek için: app.pagescms.org → GitHub ile giriş yap
+##  → btu-matro deposunu seç. Yaptığın her kayıt doğrudan bu
+##  depoya işlenir ve site 1-2 dakika içinde otomatik güncellenir.
+##
+##  Alan eklemek/çıkarmak isterseniz bu dosyayı düzenleyin.
+## ============================================================
+
+media:
+  input: public/media
+  output: /media
+  categories: [image, document]
+
+settings:
+  content:
+    merge: true
+
+content:
+  # ---------- SAYFALAR ----------
+  - name: home
+    label: 🏠 Anasayfa
+    type: file
+    path: src/data/home.json
+    format: json
+    fields:
+      - name: hero
+        label: Giriş Alanı (Hero)
+        type: object
+        fields:
+          - name: eyebrow
+            label: Üst etiket
+            type: string
+            description: Başlığın üstünde çıkan küçük yazı
+          - name: title
+            label: Ana başlık
+            type: string
+            required: true
+          - name: description
+            label: Tanıtım metni
+            type: text
+            required: true
+          - name: primaryCta
+            label: 1. Buton
+            type: object
+            fields:
+              - { name: label, label: Buton yazısı, type: string }
+              - { name: href, label: Bağlantı, type: string, description: "Örn: /takimlarimiz" }
+          - name: secondaryCta
+            label: 2. Buton
+            type: object
+            fields:
+              - { name: label, label: Buton yazısı, type: string }
+              - { name: href, label: Bağlantı, type: string }
+          - name: tertiaryCta
+            label: 3. Buton
+            type: object
+            fields:
+              - { name: label, label: Buton yazısı, type: string }
+              - { name: href, label: Bağlantı, type: string }
+
+      - name: stats
+        label: Rakamlarla MATRO (sayaçlar)
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: value, label: Sayı, type: number, required: true }
+          - { name: suffix, label: Son ek, type: string, description: "Örn: + veya %" }
+          - { name: label, label: Başlık, type: string, required: true }
+          - { name: note, label: Alt not, type: string }
+
+      - name: video
+        label: Tanıtım Videosu
+        type: object
+        fields:
+          - { name: title, label: Video başlığı, type: string }
+          - name: youtubeId
+            label: YouTube video kimliği
+            type: string
+            description: "youtube.com/watch?v=XXXXX adresindeki XXXXX kısmı"
+          - { name: description, label: Açıklama, type: text }
+
+      - name: highlights
+        label: Öne Çıkanlar Bölümü
+        type: object
+        fields:
+          - { name: eyebrow, label: Üst etiket, type: string }
+          - { name: title, label: Başlık, type: string }
+          - { name: description, label: Açıklama, type: text }
+
+  - name: about
+    label: ℹ️ Hakkımızda
+    type: file
+    path: src/data/about.json
+    format: json
+    fields:
+      - name: intro
+        label: Giriş
+        type: object
+        fields:
+          - { name: eyebrow, label: Üst etiket, type: string }
+          - { name: title, label: Başlık, type: string }
+          - name: body
+            label: Biz Kimiz metni
+            type: text
+            description: Paragrafları ayırmak için aralarına BİR BOŞ SATIR bırakın.
+      - { name: vision, label: Vizyonumuz, type: text }
+      - { name: mission, label: Misyonumuz, type: text }
+      - name: values
+        label: Temel Değerlerimiz
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: title, label: Değer adı, type: string, required: true }
+          - { name: description, label: Açıklama, type: text }
+      - name: timeline
+        label: Tarihçe (zaman çizelgesi)
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: year, label: Yıl, type: string, required: true }
+          - { name: title, label: Başlık, type: string, required: true }
+          - { name: description, label: Açıklama, type: text }
+
+  - name: achievements
+    label: 🏆 Başarılarımız
+    type: file
+    path: src/data/achievements.json
+    format: json
+    fields:
+      - name: intro
+        label: Giriş metni
+        type: text
+      - name: items
+        label: Dereceler ve Ödüller
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: year, label: Yıl, type: number, required: true }
+          - { name: competition, label: Yarışma adı, type: string, required: true }
+          - { name: category, label: Kategori, type: string, required: true }
+          - { name: degree, label: Derece / Ödül, type: string, required: true }
+          - { name: team, label: Takım (varsa), type: string }
+          - name: featured
+            label: Anasayfada öne çıkar
+            type: boolean
+            default: false
+
+  - name: activities
+    label: 🎓 Faaliyetlerimiz
+    type: collection
+    path: src/content/activities
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, type, date]
+      primary: title
+      sort: [order, date, title]
+    fields:
+      - { name: title, label: Faaliyet adı, type: string, required: true }
+      - name: type
+        label: Faaliyet türü
+        type: select
+        options:
+          values:
+            - Eğitim Kampı
+            - Eğitim
+            - Teknik Gezi
+            - Etkinlik
+            - Sosyal Sorumluluk
+        default: Etkinlik
+      - name: date
+        label: Başlangıç tarihi
+        type: date
+        options:
+          format: yyyy-MM-dd
+        required: true
+      - name: endDate
+        label: Bitiş tarihi (opsiyonel)
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: order
+        label: Sıralama
+        type: number
+        default: 99
+        description: Küçük sayı üstte görünür.
+      - { name: image, label: Kapak görseli, type: image }
+      - name: stats
+        label: Rakamlar (opsiyonel)
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: label, label: Etiket, type: string }
+          - { name: value, label: Değer, type: string }
+      - name: summary
+        label: Kısa özet
+        type: text
+        description: Kartta görünen 1-2 cümlelik özet.
+      - name: body
+        label: Detaylar
+        type: rich-text
+
+  - name: teams
+    label: 🤖 Takımlarımız
+    type: collection
+    path: src/content/teams
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, category, status]
+      primary: title
+      sort: [order, title]
+    fields:
+      - { name: title, label: Takım adı, type: string, required: true }
+      - { name: subtitle, label: Alt başlık, type: string, description: "Örn: İnsansız Hava Araçları Sistemleri" }
+      - name: category
+        label: Kategori
+        type: string
+        description: "Örn: Havacılık, Savunma, Kara Araçları…"
+      - name: status
+        label: Durum
+        type: select
+        options:
+          values: [Aktif, Yeni Takım, Arşiv]
+        default: Aktif
+      - name: order
+        label: Sıralama
+        type: number
+        default: 99
+        description: Küçük sayı üstte görünür.
+      - { name: image, label: Takım görseli, type: image }
+      - name: focus
+        label: Odak alanları
+        type: string
+        list:
+          collapsible: true
+        description: Kartta ve detay sayfasında listelenir.
+      - name: achievements
+        label: Dereceler ve ödüller
+        type: string
+        list:
+          collapsible: true
+        description: "Örn: TEKNOFEST 2024 İHA — Türkiye 19.su"
+      - name: summary
+        label: Kısa özet
+        type: text
+        description: Kartta görünen 1-2 cümlelik özet.
+      - name: body
+        label: Takım detayı
+        type: rich-text
+
+  - name: sponsors
+    label: 🤝 Sponsorlar
+    type: file
+    path: src/data/sponsors.json
+    format: json
+    fields:
+      - { name: intro, label: Giriş metni, type: text }
+      - name: note
+        label: Ekip notu (sitede görünmez)
+        type: text
+        readonly: true
+      - name: current
+        label: Güncel Sponsorlar
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: name, label: Firma adı, type: string, required: true }
+          - name: package
+            label: Paket
+            type: select
+            options:
+              values: [Ana Sponsor, Platin, Altın, Gümüş, Bronz, Gönüllü]
+          - name: type
+            label: Destek türü
+            type: string
+            description: "Örn: Nakit, Malzeme, Hizmet, Ürün"
+          - name: amount
+            label: Tutar (SİTEDE GÖRÜNMEZ — iç kayıt)
+            type: string
+          - { name: logo, label: Logo, type: image }
+          - { name: website, label: Web sitesi, type: string }
+          - name: logoKaynak
+            label: Logo kaynak bağlantısı (iç not)
+            type: string
+            description: Drive vb. bağlantı. Logoyu buradan indirip yukarıya yükleyin.
+      - name: past
+        label: Geçmiş Dönem Sponsorları
+        type: string
+        list:
+          collapsible: true
+
+  - name: sponsorship
+    label: 💼 Sponsorluk Paketleri
+    type: file
+    path: src/data/sponsorship.json
+    format: json
+    fields:
+      - name: hero
+        label: Sayfa Girişi
+        type: object
+        fields:
+          - { name: eyebrow, label: Üst etiket, type: string }
+          - { name: title, label: Başlık, type: string }
+          - { name: description, label: Açıklama, type: text }
+      - name: packages
+        label: Paketler
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: name, label: Paket adı, type: string, required: true }
+          - { name: range, label: Tutar aralığı, type: string }
+          - { name: highlight, label: Öne çıkar, type: boolean, default: false }
+          - name: benefits
+            label: Avantajlar
+            type: string
+            list:
+              collapsible: true
+      - name: supportTypes
+        label: Destek Türleri
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: title, label: Başlık, type: string }
+          - { name: description, label: Açıklama, type: text }
+      - name: cta
+        label: Alt Çağrı Bölümü
+        type: object
+        fields:
+          - { name: title, label: Başlık, type: string }
+          - { name: description, label: Açıklama, type: text }
+          - { name: buttonLabel, label: Buton yazısı, type: string }
+
+  - name: join
+    label: 📝 Bize Katılın
+    type: file
+    path: src/data/join.json
+    format: json
+    fields:
+      - name: hero
+        label: Sayfa Girişi
+        type: object
+        fields:
+          - { name: eyebrow, label: Üst etiket, type: string }
+          - { name: title, label: Başlık, type: string }
+          - { name: description, label: Açıklama, type: text }
+      - name: applicationFormUrl
+        label: Başvuru formu bağlantısı
+        type: string
+        description: Google Forms vb. bağlantı. Boş bırakılırsa Instagram butonu gösterilir.
+      - name: steps
+        label: Başvuru Adımları
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: title, label: Adım başlığı, type: string }
+          - { name: description, label: Açıklama, type: text }
+      - name: whyJoin
+        label: Neden MATRO?
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: title, label: Başlık, type: string }
+          - { name: description, label: Açıklama, type: text }
+      - name: faq
+        label: Sık Sorulan Sorular
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: question, label: Soru, type: string }
+          - { name: answer, label: Cevap, type: text }
+
+  - name: gallery
+    label: 📸 Galeri
+    type: file
+    path: src/data/gallery.json
+    format: json
+    fields:
+      - { name: intro, label: Giriş metni, type: text }
+      - name: images
+        label: Fotoğraflar
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: image, label: Fotoğraf, type: image, required: true }
+          - { name: caption, label: Açıklama, type: string }
+          - name: category
+            label: Kategori
+            type: select
+            options:
+              values: [Atölye, Yarışma, Teknik Gezi, Etkinlik, Sponsor]
+
+  - name: site
+    label: ⚙️ Site Ayarları & İletişim
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - { name: shortName, label: Kısa ad, type: string }
+      - { name: fullName, label: Tam ad, type: string }
+      - { name: university, label: Üniversite, type: string }
+      - { name: foundedYear, label: Kuruluş yılı, type: number }
+      - name: metaDescription
+        label: Arama motoru açıklaması
+        type: text
+        description: Google sonuçlarında görünen açıklama. 150-160 karakter idealdir.
+      - name: contact
+        label: İletişim Bilgileri
+        type: object
+        fields:
+          - name: emails
+            label: E-posta adresleri
+            type: string
+            list:
+              collapsible: true
+          - { name: address, label: Adres, type: text }
+          - { name: workshop, label: Atölye konumu, type: string }
+          - name: mapQuery
+            label: Harita araması
+            type: string
+            description: Google Haritalar'da aratılacak metin.
+      - name: people
+        label: Yetkililer
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: role, label: Görev, type: string }
+          - { name: name, label: Ad Soyad, type: string }
+          - name: phone
+            label: Telefon
+            type: string
+            description: Boş bırakılırsa sitede gösterilmez.
+          - name: email
+            label: E-posta
+            type: string
+            description: Boş bırakılırsa sitede gösterilmez.
+      - name: social
+        label: Sosyal Medya
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - name: platform
+            label: Platform
+            type: select
+            options:
+              values: [Instagram, LinkedIn, YouTube, Facebook, X, GitHub]
+          - { name: url, label: Bağlantı, type: string }

@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import StatGrid from '../components/StatGrid.astro';
+import AchievementsExplorer from '../components/AchievementsExplorer.astro';
+import CtaBand from '../components/CtaBand.astro';
+import achievements from '../data/achievements.json';
+
+const items = achievements.items;
+const years = [...new Set(items.map((i) => i.year))];
+const firstPlaces = items.filter((i) => i.degree.includes('1.')).length;
+const international = items.filter((i) =>
+  /dünya|singapore|france|nasa|italian|uluslararası|bölge/i.test(`${i.competition} ${i.degree}`)
+).length;
+
+const stats = [
+  { value: items.length, suffix: '', label: 'Kayıtlı Derece', note: `${Math.min(...years)}–${Math.max(...years)}` },
+  { value: firstPlaces, suffix: '', label: 'Birincilik', note: 'Türkiye ve bölge' },
+  { value: international, suffix: '', label: 'Uluslararası Başarı', note: 'Dünya çapında' },
+  { value: 258, suffix: '+', label: 'Finalist Yarışmacı', note: 'Öğrenci' },
+  { value: 32, suffix: '', label: "İlk 10'a Giren Takım", note: '2020–2024' },
+  { value: 30, suffix: '+', label: 'Toplam Ödül', note: 'Derece ve özel ödül' },
+];
+---
+
+<BaseLayout
+  title="Başarılarımız"
+  description="MATRO'nun 2019-2024 arası TEKNOFEST, NASA Space Apps, Renault Twizy Contest ve Singapore SAUVC gibi ulusal ve uluslararası yarışmalarda kazandığı tüm dereceler."
+>
+  <PageHero
+    eyebrow="Başarılarımız"
+    title="30'dan fazla derece, 15 birincilik"
+    description={achievements.intro}
+  />
+
+  <Section>
+    <StatGrid stats={stats} />
+  </Section>
+
+  <Section
+    eyebrow="Tam Liste"
+    title="Dereceler ve ödüller"
+    description="Yıla göre filtreleyebilir veya yarışma, takım ve kategori adıyla arama yapabilirsin."
+    class="pt-0"
+  >
+    <AchievementsExplorer items={items} />
+  </Section>
+
+  <CtaBand
+    title="Bu listeye sen de bir satır ekle"
+    description="Her derecenin arkasında atölyede geçirilmiş yüzlerce saat var. Aramıza katıl, bir sonraki başarının parçası ol."
+    primary={{ label: 'Bize Katılın', href: '/bize-katilin' }}
+    secondary={{ label: 'Takımlarımız', href: '/takimlarimiz' }}
+  />
+</BaseLayout>

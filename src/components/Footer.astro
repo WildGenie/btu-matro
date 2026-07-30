@@ -1,0 +1,87 @@
+---
+import Logo from './Logo.astro';
+import SocialIcon from './SocialIcon.astro';
+import site from '../data/site.json';
+import { url, NAV_LINKS } from '../lib/utils';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="relative mt-24 border-t border-white/10 bg-ink-900">
+  <div class="grid-bg absolute inset-0 opacity-40" aria-hidden="true"></div>
+
+  <div class="container-matro relative py-14">
+    <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1.2fr]">
+      <div>
+        <Logo />
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-mist-500">
+          {site.fullName} — {site.university}. {site.foundedYear} yılından bu yana
+          "Milli Teknoloji Hamlesi" vizyonuyla geleceğin teknolojilerine yön veriyoruz.
+        </p>
+
+        <div class="mt-5 flex gap-2">
+          {
+            site.social.map((s) => (
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.platform}
+                class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/12 text-mist-300 transition-colors hover:border-volt-400/50 hover:text-volt-300"
+              >
+                <SocialIcon platform={s.platform} />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <nav aria-label="Alt menü">
+        <h2 class="font-mono text-[0.65rem] tracking-[0.2em] text-mist-500 uppercase">Site Haritası</h2>
+        <ul class="mt-4 space-y-2.5">
+          <li>
+            <a href={url('/')} class="text-sm text-mist-300 transition-colors hover:text-volt-300">Anasayfa</a>
+          </li>
+          {
+            NAV_LINKS.map((link) => (
+              <li>
+                <a href={url(link.href)} class="text-sm text-mist-300 transition-colors hover:text-volt-300">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a href={url('/bize-katilin')} class="text-sm text-mist-300 transition-colors hover:text-volt-300">
+              Bize Katılın
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="font-mono text-[0.65rem] tracking-[0.2em] text-mist-500 uppercase">İletişim</h2>
+        <ul class="mt-4 space-y-3 text-sm text-mist-300">
+          {
+            site.contact.emails.map((mail) => (
+              <li>
+                <a href={`mailto:${mail}`} class="transition-colors hover:text-volt-300">
+                  {mail}
+                </a>
+              </li>
+            ))
+          }
+          <li class="leading-relaxed text-mist-500">{site.contact.address}</li>
+          <li class="leading-relaxed text-mist-500">{site.contact.workshop}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-mist-500 sm:flex-row sm:items-center"
+    >
+      <p>© {year} {site.shortName} — {site.fullName}. Tüm hakları saklıdır.</p>
+      <p class="font-mono tracking-wide">Milli Teknoloji Hamlesi</p>
+    </div>
+  </div>
+</footer>

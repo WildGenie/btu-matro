@@ -1,0 +1,107 @@
+---
+import { url, media } from '../lib/utils';
+
+interface Props {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  category?: string;
+  status?: string;
+  summary?: string;
+  image?: string;
+  focus?: string[];
+  delay?: number;
+}
+const {
+  slug,
+  title,
+  subtitle,
+  category,
+  status = 'Aktif',
+  summary,
+  image,
+  focus = [],
+  delay = 0,
+} = Astro.props;
+
+const cover = media(image);
+const isNew = status === 'Yeni Takım';
+---
+
+<a
+  href={url(`/takimlarimiz/${slug}`)}
+  class="card card-hover reveal group flex flex-col overflow-hidden"
+  data-delay={delay}
+>
+  <div class="relative aspect-[16/9] overflow-hidden border-b border-white/8 bg-ink-800">
+    {
+      cover ? (
+        <img
+          src={cover}
+          alt={`${title} takımı`}
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+        />
+      ) : (
+        <div class="grid-bg flex h-full w-full items-center justify-center">
+          <span class="font-mono text-3xl font-bold tracking-tight text-white/8 select-none">
+            {title}
+          </span>
+        </div>
+      )
+    }
+    <div class="absolute top-3 left-3 flex gap-1.5">
+      {
+        category && (
+          <span class="rounded-md bg-ink-950/80 px-2 py-1 font-mono text-[0.6rem] tracking-wider text-mist-300 uppercase backdrop-blur">
+            {category}
+          </span>
+        )
+      }
+      {
+        isNew && (
+          <span class="rounded-md bg-volt-400/90 px-2 py-1 font-mono text-[0.6rem] font-semibold tracking-wider text-ink-950 uppercase">
+            Yeni
+          </span>
+        )
+      }
+    </div>
+  </div>
+
+  <div class="flex flex-1 flex-col p-5">
+    <h3 class="text-lg font-bold tracking-tight text-mist-100 transition-colors group-hover:text-volt-300">
+      {title}
+    </h3>
+    {subtitle && <p class="mt-0.5 text-xs font-medium text-volt-400">{subtitle}</p>}
+    {summary && <p class="mt-3 flex-1 text-sm leading-relaxed text-mist-500">{summary}</p>}
+
+    {
+      focus.length > 0 && (
+        <ul class="mt-4 flex flex-wrap gap-1.5">
+          {focus.slice(0, 3).map((f) => (
+            <li class="rounded-md border border-white/10 px-2 py-1 text-[0.68rem] text-mist-500">{f}</li>
+          ))}
+        </ul>
+      )
+    }
+
+    <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-volt-400">
+      Takımı incele
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        class="transition-transform duration-300 group-hover:translate-x-1"
+      >
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </svg>
+    </span>
+  </div>
+</a>

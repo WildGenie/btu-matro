@@ -1,0 +1,227 @@
+@import 'tailwindcss';
+
+@theme {
+  /* ---- Renk paleti ---- */
+  --color-ink-950: #04070d;
+  --color-ink-900: #070b14;
+  --color-ink-850: #0b111d;
+  --color-ink-800: #101927;
+  --color-ink-700: #18243a;
+  --color-ink-600: #24344f;
+
+  --color-mist-100: #eef3fb;
+  --color-mist-300: #b9c6dc;
+  --color-mist-500: #8496b3;
+
+  --color-volt-300: #7ff0ff;
+  --color-volt-400: #29dcff;
+  --color-volt-500: #00c2e8;
+  --color-volt-600: #0396b6;
+
+  --color-ember-400: #ff4d63;
+  --color-ember-500: #f5253f;
+
+  --color-medal-400: #ffc247;
+  --color-medal-500: #f5a300;
+
+  /* ---- Tipografi ---- */
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* ---- Diğer ---- */
+  --radius-xl2: 1.25rem;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --edge: color-mix(in oklab, var(--color-mist-100) 10%, transparent);
+    --edge-soft: color-mix(in oklab, var(--color-mist-100) 6%, transparent);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-ink-950);
+    color: var(--color-mist-100);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-volt-400);
+    color: var(--color-ink-950);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-volt-400);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.025em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* Bölüm üstü küçük mono etiket */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-volt-400);
+  }
+
+  .card {
+    position: relative;
+    border-radius: var(--radius-xl2);
+    border: 1px solid var(--edge);
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-ink-850) 92%, transparent),
+      var(--color-ink-900)
+    );
+    transition:
+      border-color 0.25s ease,
+      transform 0.25s ease,
+      background 0.25s ease;
+  }
+
+  .card-hover:hover {
+    border-color: color-mix(in oklab, var(--color-volt-400) 45%, transparent);
+    transform: translateY(-3px);
+  }
+
+  /* İnce ızgara arka planı */
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, var(--edge-soft) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--edge-soft) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .prose-matro {
+    color: var(--color-mist-300);
+    line-height: 1.75;
+  }
+  .prose-matro > * + * {
+    margin-top: 1rem;
+  }
+  .prose-matro h2 {
+    color: var(--color-mist-100);
+    font-size: 1.35rem;
+    font-weight: 650;
+    margin-top: 2.25rem;
+  }
+  .prose-matro h3 {
+    color: var(--color-mist-100);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 1.75rem;
+  }
+  .prose-matro strong {
+    color: var(--color-mist-100);
+    font-weight: 600;
+  }
+  .prose-matro a {
+    color: var(--color-volt-400);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose-matro ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .prose-matro ul li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+  .prose-matro ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
+    rotate: 45deg;
+    background: var(--color-volt-500);
+  }
+  .prose-matro ol {
+    padding-left: 1.2rem;
+    list-style: decimal;
+  }
+  .prose-matro ol li {
+    margin-top: 0.5rem;
+  }
+}
+
+@layer utilities {
+  .container-matro {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-matro {
+      padding-inline: 2rem;
+    }
+  }
+
+  .text-gradient {
+    background: linear-gradient(115deg, var(--color-mist-100) 20%, var(--color-volt-300) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* Görünürlük animasyonu — hareket azaltma tercihine saygılı */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
