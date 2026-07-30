@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wildgenie.github.io/btu-matro/sitemap-index.xml
+Sitemap: https://btumatro.github.io/sitemap-index.xml

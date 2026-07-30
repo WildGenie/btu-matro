@@ -4,9 +4,10 @@ Bursa Teknik Üniversitesi **Makine Teknolojileri Robot ve Otomasyon Topluluğu*
 
 | | |
 |---|---|
-| **Yayında** | https://wildgenie.github.io/btu-matro/ |
+| **Yayında** | https://btumatro.github.io/ |
 | **İçerik paneli** | https://app.pagescms.org |
 | **Hedef alan adı** | btumatro.com *(henüz bağlanmadı — aşağıya bakın)* |
+| **Depo** | https://github.com/btumatro/btumatro.github.io |
 
 Site tamamen statiktir: sunucu, veritabanı ve barındırma ücreti yoktur. Tüm içerik bu deponun içinde metin dosyası olarak durur; içerik panelinden yapılan her düzenleme buraya kaydedilir ve site **1–2 dakika içinde** otomatik güncellenir.
 
@@ -20,7 +21,7 @@ Site tamamen statiktir: sunucu, veritabanı ve barındırma ücreti yoktur. Tüm
 
 1. https://app.pagescms.org adresine git.
 2. **Sign in with GitHub** ile GitHub hesabınla giriş yap.
-3. Karşına çıkan listeden **btu-matro** deposunu seç.
+3. Karşına çıkan listeden **btumatro.github.io** deposunu seç.
 4. Sol menüde sayfaların listelendiğini göreceksin.
 
 > Deponun listede çıkmaması, GitHub hesabının depoya yazma yetkisi olmadığı anlamına gelir. Topluluk sorumlusundan seni depoya **Write** yetkisiyle eklemesini iste.
@@ -123,11 +124,10 @@ Cloudflare → btumatro.com → **DNS** → **Records** → aşağıdaki kayıtl
 GitHub → Settings → Pages sayfasında **Enforce HTTPS** kutusu aktifleşene kadar bekle (genelde 10 dk – 1 saat). Aktifleşince işaretle.
 
 ### 5. Siteyi yeni adrese geçir
-`site.config.mjs` dosyasını aç ve şu iki satırı değiştir:
+`site.config.mjs` dosyasını aç ve tek satırı değiştir:
 
 ```js
 export const SITE_URL = 'https://btumatro.com';
-export const BASE_PATH = '/';
 ```
 
 Ardından `public/CNAME` adında bir dosya oluştur, içine tek satır yaz:
@@ -235,4 +235,5 @@ GitHub hesabına depo üzerinde **Write** yetkisi verilmiş olmalı. Ayrıca app
 Görselin ilgili alana (örn. *Kapak görseli*) seçildiğinden ve **Save** yapıldığından emin ol. Sadece yüklemek yetmez, alana atanması gerekir.
 
 **Site bozuk görünüyor / stiller yok**
-Genelde `site.config.mjs` içindeki `BASE_PATH` ile gerçek adres uyuşmuyordur. GitHub adresinde `'/btu-matro'`, kendi alan adında `'/'` olmalı.
+`site.config.mjs` içindeki `SITE_URL` ile sitenin gerçek adresi uyuşmuyor olabilir. Depo adı
+`btumatro.github.io` olduğu için `BASE_PATH` her zaman `'/'` kalmalıdır.
