@@ -1,6 +1,11 @@
 ---
 import '@fontsource-variable/inter';
 import '@fontsource-variable/jetbrains-mono';
+// Barlow — BTÜ kurumsal yazı tipi, başlıklarda kullanılır (sadece gerekli ağırlıklar)
+import '@fontsource/barlow/latin-600.css';
+import '@fontsource/barlow/latin-ext-600.css';
+import '@fontsource/barlow/latin-700.css';
+import '@fontsource/barlow/latin-ext-700.css';
 import '../styles/global.css';
 
 import Header from '../components/Header.astro';
@@ -53,7 +58,8 @@ const jsonLd = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <link rel="icon" type="image/png" href={url('/favicon.png')} />
+    <link rel="apple-touch-icon" href={url('/apple-touch-icon.png')} />
     <link rel="canonical" href={canonical.href} />
 
     <title>{pageTitle}</title>

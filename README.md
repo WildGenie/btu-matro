@@ -144,11 +144,16 @@ npm run dev
 npm run build
 ```
 
-### Sosyal medya önizleme görselini yeniden üret
+### Logo ve marka görsellerini yeniden üret
+
+Logo dosyaları değişirse `src/assets/logo-kaynak/` içindekileri güncelle, sonra:
 
 ```bash
-node scripts/make-og.mjs public/og.png
+node scripts/make-brand.mjs && node scripts/make-og.mjs
 ```
+
+Bu iki betik `public/` altındaki logo, favicon, iOS simgesi ve sosyal medya önizleme
+görsellerini kaynak dosyalardan yeniden üretir.
 
 ### Teknoloji yığını
 
@@ -168,9 +173,14 @@ astro.config.mjs         Astro yapılandırması
 .github/workflows/       Otomatik yayın (GitHub Actions)
 public/
   media/                 Panelden yüklenen görseller
-  og.png                 Sosyal medya önizleme görseli
-scripts/make-og.mjs      OG görselini üreten betik
+  logo-*.png             Üretilen logolar (elle düzenlemeyin)
+  favicon.png            Sekme simgesi (üretilir)
+  og.png                 Sosyal medya önizleme görseli (üretilir)
+scripts/
+  make-brand.mjs         Logo, favicon ve simgeleri üretir
+  make-og.mjs            Sosyal medya önizleme görselini üretir
 src/
+  assets/logo-kaynak/    Orijinal logo dosyaları (kaynak)
   data/*.json            Tekil sayfa içerikleri
   content/teams/*.md     Takım sayfaları
   content/activities/*.md Faaliyetler
@@ -180,9 +190,15 @@ src/
   styles/global.css      Renk paleti ve tipografi
 ```
 
-### Renkleri değiştirmek
+### Renkleri ve yazı tiplerini değiştirmek
 
-`src/styles/global.css` içindeki `@theme` bloğu tüm paleti tanımlar. Oradaki değerleri değiştirmek tüm siteyi etkiler.
+`src/styles/global.css` içindeki `@theme` bloğu tüm paleti ve tipografiyi tanımlar. Oradaki değerleri değiştirmek tüm siteyi etkiler.
+
+### Marka kullanımı
+
+- **MATRO logosu:** Koyu zeminlerde beyaz varyant (`logo-matro-beyaz.png`), açık zeminlerde renkli varyant (`logo-matro.png`) kullanılır. Kaynak dosyaların tamamı `src/assets/logo-kaynak/` altındadır.
+- **BTÜ logosu:** [btu.edu.tr kurumsal kimlik sayfasındaki](https://btu.edu.tr/tr/sayfa/detay/3401/kurumsal-kimlik) resmi dosyalardır. Footer'da beyaz yatay sürüm kullanılır.
+- **Yazı tipi:** Başlıklarda üniversitenin kurumsal fontu **Barlow**, gövde metinlerinde ekran okunabilirliği için **Inter**, teknik etiket ve sayılarda **JetBrains Mono** kullanılır. Üçü de npm paketi olarak sitede barındırılır; dışarıya font isteği gitmez.
 
 ---
 

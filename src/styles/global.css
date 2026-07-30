@@ -24,8 +24,11 @@
   --color-medal-400: #ffc247;
   --color-medal-500: #f5a300;
 
-  /* ---- Tipografi ---- */
+  /* ---- Tipografi ----
+     Barlow, Bursa Teknik Üniversitesi'nin kurumsal yazı tipidir; başlıklarda
+     kullanılır. Gövde metinlerinde ekran okunabilirliği için Inter tercih edilir. */
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Barlow', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
 
   /* ---- Diğer ---- */
@@ -69,8 +72,9 @@
   h2,
   h3,
   h4 {
+    font-family: var(--font-display);
     text-wrap: balance;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.015em;
   }
 
   p {

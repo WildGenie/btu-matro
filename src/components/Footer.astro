@@ -77,11 +77,33 @@ const year = new Date().getFullYear();
       </div>
     </div>
 
-    <div
-      class="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-mist-500 sm:flex-row sm:items-center"
-    >
+    <div class="mt-12 flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+      <a
+        href="https://btu.edu.tr"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-4 transition-opacity hover:opacity-80"
+      >
+        <span class="font-mono text-[0.6rem] tracking-[0.18em] text-mist-500 uppercase">
+          Bağlı olduğumuz<br />kurum
+        </span>
+        <span class="h-9 w-px bg-white/12" aria-hidden="true"></span>
+        <img
+          src={url('/logo-btu-beyaz.png')}
+          alt="Bursa Teknik Üniversitesi"
+          width="150"
+          height="36"
+          class="h-9 w-auto opacity-90"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+
+      <p class="font-mono text-xs tracking-wide text-mist-500">Milli Teknoloji Hamlesi</p>
+    </div>
+
+    <div class="mt-6 border-t border-white/10 pt-6 text-xs text-mist-500">
       <p>© {year} {site.shortName} — {site.fullName}. Tüm hakları saklıdır.</p>
-      <p class="font-mono tracking-wide">Milli Teknoloji Hamlesi</p>
     </div>
   </div>
 </footer>
