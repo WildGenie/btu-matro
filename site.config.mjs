@@ -3,22 +3,14 @@
  *  SİTE ADRESİ AYARI
  * ============================================================
  *
- * Site şu an GitHub'ın verdiği ücretsiz adreste yayında:
- *   https://btumatro.github.io/
+ * Site btumatro.com alan adında yayında.
  *
- * Depo adı `btumatro.github.io` olduğu için site alt klasörde
- * değil, doğrudan kökte yayınlanır. Bu yüzden BASE_PATH '/' olarak
- * kalır ve alan adı bağlandığında da değişmesi gerekmez.
+ * Depo adı `btumatro.github.io` olduğu ve alan adı kökten
+ * yayınlandığı için BASE_PATH her zaman '/' kalır.
  *
- * ► btumatro.com alan adını bağladıktan sonra (README'deki
- *   "Alan adı bağlama" adımlarını yaptıktan sonra) yalnızca
- *   aşağıdaki adresi değiştir:
- *
- *     export const SITE_URL = 'https://btumatro.com';
- *
- *   Ayrıca `public/CNAME` dosyasını oluşturup içine tek satır
- *   olarak `btumatro.com` yaz. Hepsi bu kadar.
+ * `public/CNAME` dosyası alan adını taşır; silinirse site
+ * btumatro.github.io adresine geri döner.
  */
 
-export const SITE_URL = 'https://btumatro.github.io';
+export const SITE_URL = 'https://btumatro.com';
 export const BASE_PATH = '/';

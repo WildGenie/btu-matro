@@ -4,9 +4,9 @@ Bursa Teknik Üniversitesi **Makine Teknolojileri Robot ve Otomasyon Topluluğu*
 
 | | |
 |---|---|
-| **Yayında** | https://btumatro.github.io/ |
+| **Yayında** | https://btumatro.com |
 | **İçerik paneli** | https://app.pagescms.org |
-| **Hedef alan adı** | btumatro.com *(henüz bağlanmadı — aşağıya bakın)* |
+| **Yedek adres** | https://btumatro.github.io |
 | **Depo** | https://github.com/btumatro/btumatro.github.io |
 
 Site tamamen statiktir: sunucu, veritabanı ve barındırma ücreti yoktur. Tüm içerik bu deponun içinde metin dosyası olarak durur; içerik panelinden yapılan her düzenleme buraya kaydedilir ve site **1–2 dakika içinde** otomatik güncellenir.
@@ -92,51 +92,25 @@ Telefon/e-posta boş bırakılırsa sitede hiç gösterilmez.
 
 ---
 
-## btumatro.com alan adını bağlama
+## Alan adı kurulumu (tamamlandı)
 
-Alan adı Cloudflare'de kayıtlı. Bağlamak için sırasıyla:
+btumatro.com Cloudflare'de kayıtlı ve GitHub Pages'e bağlı. Kurulum şu şekilde:
 
-### 1. GitHub tarafı
-Depo → **Settings** → **Pages** → *Custom domain* alanına `btumatro.com` yaz → **Save**.
-(DNS ayarlanmadığı için bir süre uyarı gösterecek, normal.)
+| Type | Name | Content | Proxy |
+|---|---|---|---|
+| A | `@` | `185.199.108.153` / `.109` / `.110` / `.111` | DNS only |
+| AAAA | `@` | `2606:50c0:800{0,1,2,3}::153` | DNS only |
+| CNAME | `www` | `btumatro.github.io` | DNS only |
 
-### 2. Cloudflare DNS kayıtları
-Cloudflare → btumatro.com → **DNS** → **Records** → aşağıdaki kayıtları ekle.
-**Proxy status mutlaka `DNS only` (gri bulut) olmalı** — turuncu bulut açıkken GitHub sertifika üretemez.
+- GitHub → Settings → Pages → *Custom domain*: `btumatro.com`, **Enforce HTTPS** açık.
+- `public/CNAME` dosyası alan adını taşır. **Bu dosyayı silmeyin**, silinirse site
+  btumatro.github.io adresine geri döner.
+- Cloudflare proxy (turuncu bulut) kapalı. Açmak isterseniz **SSL/TLS → Full (strict)**
+  seçin; `Flexible` sonsuz yönlendirme döngüsüne yol açar.
+- `www.btumatro.com` otomatik olarak `btumatro.com`'a yönlenir.
 
-| Type | Name | Content |
-|---|---|---|
-| A | `@` | `185.199.108.153` |
-| A | `@` | `185.199.109.153` |
-| A | `@` | `185.199.110.153` |
-| A | `@` | `185.199.111.153` |
-| AAAA | `@` | `2606:50c0:8000::153` |
-| AAAA | `@` | `2606:50c0:8001::153` |
-| AAAA | `@` | `2606:50c0:8002::153` |
-| AAAA | `@` | `2606:50c0:8003::153` |
-| CNAME | `www` | `wildgenie.github.io` |
-
-### 3. Cloudflare SSL ayarı
-**SSL/TLS** → **Overview** → şifreleme modunu **Full** yap.
-`Flexible` seçilirse site sonsuz yönlendirme döngüsüne girer.
-
-### 4. Sertifikayı bekle
-GitHub → Settings → Pages sayfasında **Enforce HTTPS** kutusu aktifleşene kadar bekle (genelde 10 dk – 1 saat). Aktifleşince işaretle.
-
-### 5. Siteyi yeni adrese geçir
-`site.config.mjs` dosyasını aç ve tek satırı değiştir:
-
-```js
-export const SITE_URL = 'https://btumatro.com';
-```
-
-Ardından `public/CNAME` adında bir dosya oluştur, içine tek satır yaz:
-
-```
-btumatro.com
-```
-
-Kaydet (commit). Site birkaç dakika içinde btumatro.com üzerinden yayına girer.
+Alan adı değişirse: `site.config.mjs` içindeki `SITE_URL`, `public/CNAME` ve
+`public/robots.txt` güncellenmelidir.
 
 ---
 
