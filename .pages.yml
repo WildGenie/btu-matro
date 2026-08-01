@@ -568,16 +568,27 @@ content:
         list:
           collapsible: true
         fields:
-          - { name: role, label: Görev, type: string }
+          - name: role
+            label: Görev
+            type: string
+            description: "Örn: Akademik Danışman, Topluluk Başkanı"
           - { name: name, label: Ad Soyad, type: string }
+          - name: title
+            label: Unvan / bölüm (opsiyonel)
+            type: string
+            description: "Örn: Mühendislik Fakültesi — Mekatronik Mühendisliği Bölümü"
           - name: phone
             label: Telefon
             type: string
-            description: Boş bırakılırsa sitede gösterilmez.
+            description: Boş bırakılırsa sitede gösterilmez. Kişisel numara yayınlamadan önce izin alın.
           - name: email
             label: E-posta
             type: string
             description: Boş bırakılırsa sitede gösterilmez.
+          - name: profileUrl
+            label: Akademik sayfa bağlantısı
+            type: string
+            description: "Örn: https://sayfam.btu.edu.tr/..." 
       - name: social
         label: Sosyal Medya
         type: object

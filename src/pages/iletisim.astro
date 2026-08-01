@@ -99,6 +99,7 @@ const people = site.people.filter((p) => p.name && !p.name.startsWith('['));
                 {p.role}
               </span>
               <h3 class="mt-2 text-lg font-bold tracking-tight text-mist-100">{p.name}</h3>
+              {p.title && <p class="mt-1 text-xs leading-relaxed text-mist-500">{p.title}</p>}
               <ul class="mt-3 space-y-1.5 text-sm">
                 {p.phone && (
                   <li>
@@ -114,6 +115,18 @@ const people = site.people.filter((p) => p.name && !p.name.startsWith('['));
                   <li>
                     <a href={`mailto:${p.email}`} class="text-mist-300 transition-colors hover:text-volt-300">
                       {p.email}
+                    </a>
+                  </li>
+                )}
+                {p.profileUrl && (
+                  <li>
+                    <a
+                      href={p.profileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-mist-300 transition-colors hover:text-volt-300"
+                    >
+                      Akademik sayfası →
                     </a>
                   </li>
                 )}
