@@ -125,23 +125,27 @@ const mailto = `mailto:${site.contact.emails[0]}?subject=${encodeURIComponent('S
           const logo = media(s.logo);
           return (
             <article class="card reveal flex flex-col p-6" data-delay={(i % 3) * 55}>
-              <div class="flex h-16 items-center">
-                {logo ? (
-                  <img
-                    src={logo}
-                    alt={`${s.name} logosu`}
-                    loading="lazy"
-                    decoding="async"
-                    class="max-h-12 max-w-[70%] object-contain"
-                  />
-                ) : (
-                  <span class="text-lg font-bold tracking-tight text-mist-100">{s.name}</span>
-                )}
-              </div>
+              {logo ? (
+                <img
+                  src={logo}
+                  alt={`${s.name} logosu`}
+                  loading="lazy"
+                  decoding="async"
+                  width="80"
+                  height="80"
+                  class="h-20 w-20 shrink-0 rounded-full object-contain ring-1 ring-white/10"
+                />
+              ) : (
+                <div class="flex h-20 w-20 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10">
+                  <span class="font-mono text-xl font-bold text-white/25">
+                    {s.name.trim().charAt(0)}
+                  </span>
+                </div>
+              )}
 
-              {logo && <p class="mt-1 text-sm font-semibold text-mist-100">{s.name}</p>}
+              <p class="mt-4 text-base font-bold tracking-tight text-mist-100">{s.name}</p>
 
-              <div class="mt-4 flex flex-wrap items-center gap-2">
+              <div class="mt-3 flex flex-wrap items-center gap-2">
                 <span class={`rounded-md border px-2.5 py-1 font-mono text-[0.62rem] tracking-[0.12em] uppercase ${tone.ring} ${tone.bg} ${tone.text}`}>
                   {s.package}
                 </span>
