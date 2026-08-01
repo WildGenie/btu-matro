@@ -27,7 +27,9 @@ const test = {
     const mx = Math.max(r, g, b);
     return mx < 42 && mx - Math.min(r, g, b) < 12 && mx > 13;
   },
-  teal: (r, g, b) => b > 52 && b - r > 38 && r < 28,
+  // Luna Robotics diskinin dolgusu çok tutarlı: ~(12,49,67).
+  // Çevresindeki mavi arka plan daha koyu veya daha açık kaldığı için dar bir aralık yeter.
+  teal: (r, g, b) => r < 26 && g >= 44 && g <= 58 && b >= 58 && b <= 78,
 };
 
 // [dosya, çıktı adı, yaklaşık merkez X, yaklaşık merkez Y, disk tipi, beklenen yarıçap]
@@ -65,6 +67,8 @@ async function raw(file) {
 
 fs.mkdirSync(OUT, { recursive: true });
 
+const olcumler = [];
+
 for (const [file, name, ax, ay, tip, beklenen] of jobs) {
   const { data, info } = await raw(file);
   const { width: W, height: H, channels: C } = info;
@@ -83,6 +87,23 @@ for (const [file, name, ax, ay, tip, beklenen] of jobs) {
       if (uye(data[i], data[i + 1], data[i + 2])) mask[y * w + x] = 1;
     }
   }
+
+  // Maskeyi aşındır: diskin dışındaki ince halka yayları ve parlama elensin.
+  // Bir piksel, ancak K yarıçaplı komşuluğunun tamamı diske aitse korunur.
+  const K = 5;
+  const asinmis = new Uint8Array(w * h);
+  for (let y = K; y < h - K; y++) {
+    for (let x = K; x < w - K; x++) {
+      let tum = true;
+      for (let dy = -K; dy <= K && tum; dy++) {
+        for (let dx = -K; dx <= K; dx++) {
+          if (!mask[(y + dy) * w + (x + dx)]) { tum = false; break; }
+        }
+      }
+      if (tum) asinmis[y * w + x] = 1;
+    }
+  }
+  mask.set(asinmis);
 
   // Merkez çevresinde bir halka üzerinden tohum topla (logo yazısına denk gelmesin diye)
   const seeds = [];
@@ -115,7 +136,7 @@ for (const [file, name, ax, ay, tip, beklenen] of jobs) {
 
   const cx = Math.round(x0 + (minX + maxX) / 2);
   const cy = Math.round(y0 + (minY + maxY) / 2);
-  const r = Math.round(Math.min(maxX - minX, maxY - minY) / 2);
+  const r = Math.round(Math.min(maxX - minX, maxY - minY) / 2) + K;
   const sapma = Math.round((100 * Math.abs(r - beklenen)) / beklenen);
 
   if (r < beklenen * 0.7 || r > beklenen * 1.35) {
@@ -123,8 +144,29 @@ for (const [file, name, ax, ay, tip, beklenen] of jobs) {
     continue;
   }
 
-  const left = cx - r, top = cy - r, size = r * 2;
-  const cropped = await sharp(path.join(SRC, file))
+  olcumler.push({ file, name, cx, cy, r, tip, beklenen, count });
+  console.log(`${name.padEnd(16)} ${tip.padEnd(13)} merkez=(${cx},${cy}) r=${r} (beklenen ${beklenen}, sapma %${sapma})`);
+}
+
+// Aynı görseldeki diskler tasarım gereği eş yarıçaplı. Beyaz disklerin ölçümü
+// en güvenilir olduğu için her görselin yarıçapını onların ortancasına sabitliyoruz.
+const dosyaYaricap = new Map();
+for (const o of olcumler) {
+  if (!dosyaYaricap.has(o.file)) dosyaYaricap.set(o.file, []);
+  if (o.tip === 'beyaz') dosyaYaricap.get(o.file).push(o.r);
+}
+const ortanca = (a) => {
+  const s = [...a].sort((x, y) => x - y);
+  return s.length ? s[Math.floor(s.length / 2)] : null;
+};
+
+console.log('\n--- kırpılıyor ---');
+for (const o of olcumler) {
+  const ortak = ortanca(dosyaYaricap.get(o.file) ?? []);
+  const r = ortak ?? o.r;
+  const left = o.cx - r, top = o.cy - r, size = r * 2;
+
+  const cropped = await sharp(path.join(SRC, o.file))
     .extract({ left, top, width: size, height: size })
     .resize(SIZE, SIZE, { fit: 'cover' })
     .png()
@@ -137,9 +179,7 @@ for (const [file, name, ax, ay, tip, beklenen] of jobs) {
   await sharp(cropped)
     .composite([{ input: circle, blend: 'dest-in' }])
     .png({ compressionLevel: 9 })
-    .toFile(path.join(OUT, `${name}.png`));
+    .toFile(path.join(OUT, `${o.name}.png`));
 
-  console.log(
-    `${name.padEnd(16)} ${tip.padEnd(13)} merkez=(${cx},${cy}) r=${r} (beklenen ${beklenen}, sapma %${sapma}) piksel=${count}`
-  );
+  console.log(`${o.name.padEnd(16)} r=${r}${r !== o.r ? ` (ölçülen ${o.r}, ortak yarıçapa hizalandı)` : ''}`);
 }
