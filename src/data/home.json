@@ -18,37 +18,40 @@
   },
   "stats": [
     {
-      "value": 30,
-      "suffix": "+",
+      "value": 22,
+      "suffix": "",
       "label": "Ödül ve Derece",
-      "note": "2019–2024 arası"
+      "note": "2020–2025"
     },
     {
-      "value": 15,
-      "label": "Birincilik",
-      "note": "Ulusal ve uluslararası"
+      "value": 5,
+      "suffix": "",
+      "label": "Türkiye Birinciliği",
+      "note": "2020–2025"
     },
     {
-      "value": 258,
-      "suffix": "+",
+      "value": 342,
+      "suffix": "",
       "label": "Finalist Yarışmacı",
-      "note": "Öğrenci"
+      "note": "2020–2025"
     },
     {
-      "value": 32,
+      "value": 35,
+      "suffix": "",
       "label": "İlk 10'a Giren Takım",
-      "note": "2020–2024"
+      "note": "2020–2025"
     },
     {
-      "value": 50,
-      "suffix": "+",
-      "label": "Geliştirilen Proje",
-      "note": "Farklı disiplinlerde"
+      "value": 13,
+      "suffix": "",
+      "label": "Yıllık Birikim",
+      "note": "2013'ten bu yana"
     },
     {
-      "value": 125,
-      "label": "Staj İmkânı",
-      "note": "Üyelerimize"
+      "value": 75,
+      "suffix": ".000+ TL",
+      "label": "Sosyal Sorumluluk Desteği",
+      "note": "Kardeş Okul Projesi"
     }
   ],
   "video": {
@@ -59,6 +62,6 @@
   "highlights": {
     "eyebrow": "Öne Çıkanlar",
     "title": "Son dönemde neler başardık?",
-    "description": "Topluluğumuz 2020-2024 yılları arasında 32 takımı ile ilk 10'a girdi, 258 yarışmacı ile finalist oldu ve 21'den fazla derece ile özel ödül kazandı."
+    "description": "2020-2025 döneminde 35 takımımız ilk 10'a girdi, 342 yarışmacımız finalist oldu ve 22 derece ile özel ödül kazandık."
   }
 }

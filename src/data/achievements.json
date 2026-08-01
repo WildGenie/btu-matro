@@ -1,12 +1,68 @@
 {
-  "intro": "Topluluğumuz 2019'dan bu yana TEKNOFEST başta olmak üzere ulusal ve uluslararası yarışmalarda 30'dan fazla derece ve özel ödül kazandı; 32 takımı ile ilk 10'a girdi ve 258 yarışmacı ile finalist oldu.",
+  "intro": "Topluluğumuz 2020-2025 döneminde 35 takımı ile ilk 10'a girdi, 342 yarışmacı ile finalist oldu ve 22 derece ile özel ödül kazandı. Aşağıda 2013'ten bugüne kazanılan tüm dereceler yer alıyor.",
   "items": [
     {
       "year": 2025,
-      "competition": "TEKNOFEST",
+      "competition": "TEKNOFEST — ASELSAN",
+      "category": "Hava Savunma Sistemleri",
+      "degree": "Rapor 3.sü",
+      "team": "GÖKSAV",
+      "featured": false
+    },
+    {
+      "year": 2025,
+      "competition": "TEKNOFEST — ASELSAN",
+      "category": "İnsansız Deniz Aracı",
+      "degree": "Türkiye Finalisti",
+      "team": "İDA",
+      "featured": false
+    },
+    {
+      "year": 2025,
+      "competition": "TEKNOFEST — ASELSAN",
       "category": "İnsansız Kara Aracı",
       "degree": "Türkiye 3.sü",
       "team": "MATROVER",
+      "featured": true
+    },
+    {
+      "year": 2025,
+      "competition": "TEKNOFEST — ASELSAN",
+      "category": "İnsansız Kara Aracı",
+      "degree": "Türkiye Finalisti",
+      "team": "LUNA",
+      "featured": false
+    },
+    {
+      "year": 2025,
+      "competition": "TEKNOFEST — ASELSAN",
+      "category": "İnsansız Sualtı Aracı",
+      "degree": "Türkiye Finalisti",
+      "team": "İSS",
+      "featured": false
+    },
+    {
+      "year": 2025,
+      "competition": "TEKNOFEST — PUSULA",
+      "category": "Sanayide Dijital Teknolojiler",
+      "degree": "Türkiye 8.si",
+      "team": "",
+      "featured": false
+    },
+    {
+      "year": 2025,
+      "competition": "TEKNOFEST — SANKO",
+      "category": "Çevre ve Enerji Teknolojileri",
+      "degree": "Türkiye 7.si",
+      "team": "ALHAZEN",
+      "featured": false
+    },
+    {
+      "year": 2024,
+      "competition": "Google Developers Group",
+      "category": "Yapay Zekâ Hackathonu",
+      "degree": "Türkiye 1.si",
+      "team": "",
       "featured": true
     },
     {
@@ -19,34 +75,18 @@
     },
     {
       "year": 2024,
-      "competition": "Google Developers Group",
-      "category": "Yapay Zekâ Hackathonu",
-      "degree": "Türkiye 1.si",
+      "competition": "TEKNOFEST",
+      "category": "Sanayide Dijital Teknolojiler",
+      "degree": "Türkiye Finalisti",
       "team": "",
-      "featured": true
-    },
-    {
-      "year": 2024,
-      "competition": "TEKNOFEST — Bilişim Vadisi",
-      "category": "Tarımsal İnsansız Kara Aracı",
-      "degree": "Türkiye 5.si",
-      "team": "MATROBOT",
       "featured": false
     },
     {
       "year": 2024,
-      "competition": "TEKNOFEST — ULAK",
-      "category": "Kablosuz Haberleşme",
-      "degree": "Türkiye 6.sı",
-      "team": "ÇAĞRI",
-      "featured": false
-    },
-    {
-      "year": 2024,
-      "competition": "TEKNOFEST — HAVELSAN",
-      "category": "Sürü İnsansız Hava Aracı",
-      "degree": "Türkiye 9.su",
-      "team": "",
+      "competition": "TEKNOFEST — ASELSAN",
+      "category": "İnsansız Sualtı Aracı",
+      "degree": "Türkiye Finalisti",
+      "team": "İSS",
       "featured": false
     },
     {
@@ -59,10 +99,42 @@
     },
     {
       "year": 2024,
+      "competition": "TEKNOFEST — Bilişim Vadisi",
+      "category": "Tarımsal İnsansız Kara Aracı",
+      "degree": "Türkiye 5.si",
+      "team": "MATROBOT",
+      "featured": false
+    },
+    {
+      "year": 2024,
+      "competition": "TEKNOFEST — HAVELSAN",
+      "category": "Sürü İnsansız Hava Aracı",
+      "degree": "Türkiye 9.su",
+      "team": "",
+      "featured": false
+    },
+    {
+      "year": 2024,
       "competition": "TEKNOFEST — TÜBİTAK",
       "category": "Uluslararası Serbest Görev İHA",
       "degree": "Türkiye 19.su",
       "team": "ASHİNA",
+      "featured": false
+    },
+    {
+      "year": 2024,
+      "competition": "TEKNOFEST — ULAK",
+      "category": "Kablosuz Haberleşme",
+      "degree": "Türkiye 6.sı",
+      "team": "ÇAĞRI",
+      "featured": false
+    },
+    {
+      "year": 2023,
+      "competition": "TEKNOFEST — Bilişim Vadisi",
+      "category": "Tarımsal İnsansız Kara Aracı",
+      "degree": "Türkiye Finalisti",
+      "team": "YAKLI",
       "featured": false
     },
     {
@@ -79,14 +151,6 @@
       "category": "İnsansız Hava Araçları",
       "degree": "En İyi Performans Ödülü",
       "team": "ASHİNA",
-      "featured": false
-    },
-    {
-      "year": 2023,
-      "competition": "TEKNOFEST — Bilişim Vadisi",
-      "category": "Tarımsal İnsansız Kara Aracı",
-      "degree": "Türkiye Finalisti",
-      "team": "YAKLI",
       "featured": false
     },
     {
@@ -107,14 +171,6 @@
     },
     {
       "year": 2022,
-      "competition": "TEKNOFEST — İGA",
-      "category": "Akıllı Ulaşım",
-      "degree": "En İyi Sunum Ödülü",
-      "team": "",
-      "featured": false
-    },
-    {
-      "year": 2022,
       "competition": "TEKNOFEST — Cezeri",
       "category": "Uçan Araba",
       "degree": "En İyi Performans Ödülü",
@@ -131,6 +187,14 @@
     },
     {
       "year": 2022,
+      "competition": "TEKNOFEST — TARNET",
+      "category": "Tarımsal İnsansız Kara Aracı",
+      "degree": "Türkiye 5.si",
+      "team": "ROVER TEAM",
+      "featured": false
+    },
+    {
+      "year": 2022,
       "competition": "TEKNOFEST — TÜBİTAK",
       "category": "İnsansız Hava Araçları",
       "degree": "Türkiye 4.sü",
@@ -139,10 +203,18 @@
     },
     {
       "year": 2022,
-      "competition": "TEKNOFEST — TARNET",
-      "category": "Tarımsal İnsansız Kara Aracı",
-      "degree": "Türkiye 5.si",
-      "team": "ROVER TEAM",
+      "competition": "TEKNOFEST — İGA",
+      "category": "Akıllı Ulaşım",
+      "degree": "En İyi Sunum Ödülü",
+      "team": "",
+      "featured": false
+    },
+    {
+      "year": 2021,
+      "competition": "Bursa Büyükşehir Belediyesi",
+      "category": "Genç Zihinler",
+      "degree": "Türkiye 1.si",
+      "team": "",
       "featured": false
     },
     {
@@ -163,14 +235,6 @@
     },
     {
       "year": 2021,
-      "competition": "Bursa Büyükşehir Belediyesi",
-      "category": "Genç Zihinler",
-      "degree": "Türkiye 1.si",
-      "team": "",
-      "featured": false
-    },
-    {
-      "year": 2021,
       "competition": "Renault Twizy Contest",
       "category": "Mobility Challenge",
       "degree": "Türkiye 2.si — En İyi İletişim Ödülü",
@@ -187,10 +251,10 @@
     },
     {
       "year": 2021,
-      "competition": "TEKNOFEST — TÜBİTAK",
-      "category": "İnsansız Hava Araçları",
-      "degree": "Türkiye 3.sü",
-      "team": "ASHİNA",
+      "competition": "TEKNOFEST — ASELSAN",
+      "category": "İnsansız Su Altı Sistemleri",
+      "degree": "Türkiye Finalisti",
+      "team": "İSS",
       "featured": false
     },
     {
@@ -203,10 +267,18 @@
     },
     {
       "year": 2021,
-      "competition": "TEKNOFEST — ASELSAN",
-      "category": "İnsansız Su Altı Sistemleri",
-      "degree": "Türkiye Finalisti",
-      "team": "İSS",
+      "competition": "TEKNOFEST — TÜBİTAK",
+      "category": "İnsansız Hava Araçları",
+      "degree": "Türkiye 3.sü",
+      "team": "ASHİNA",
+      "featured": false
+    },
+    {
+      "year": 2020,
+      "competition": "Italian Design Days",
+      "category": "FIAT Design Contest",
+      "degree": "Türkiye 2.si",
+      "team": "",
       "featured": false
     },
     {
@@ -218,11 +290,11 @@
       "featured": true
     },
     {
-      "year": 2020,
-      "competition": "Italian Design Days",
-      "category": "FIAT Design Contest",
-      "degree": "Türkiye 2.si",
-      "team": "",
+      "year": 2019,
+      "competition": "TEKNOFEST — ASELSAN",
+      "category": "İnsansız Su Altı Sistemleri",
+      "degree": "Türkiye 7.si",
+      "team": "İSS",
       "featured": false
     },
     {
@@ -234,12 +306,12 @@
       "featured": false
     },
     {
-      "year": 2019,
-      "competition": "TEKNOFEST — ASELSAN",
-      "category": "İnsansız Su Altı Sistemleri",
-      "degree": "Türkiye 7.si",
-      "team": "İSS",
-      "featured": false
+      "year": 2013,
+      "competition": "Future Flight Design (FFD'13)",
+      "category": "İnsansız Hava Aracı Tasarımı",
+      "degree": "Dünya 2.si",
+      "team": "LAGARİ",
+      "featured": true
     }
   ]
 }

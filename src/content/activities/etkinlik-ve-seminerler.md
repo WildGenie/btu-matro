@@ -1,0 +1,37 @@
+---
+title: Etkinlikler, Seminerler ve Çalıştaylar
+type: Etkinlik
+date: 2025-01-01
+endDate: ""
+order: 4
+image: ""
+stats: []
+summary: "Sektörel söyleşiler, kariyer günleri, hackathon organizasyonları ve teknoloji çalıştaylarıyla üyelerimizi alanında uzman isimlerle buluşturuyoruz."
+---
+
+Üyelerimizin kariyer ufkunu genişletmek ve teknoloji ekosistemiyle bağ kurmalarını sağlamak için yıl boyunca etkinlik, seminer ve çalıştaylar düzenliyoruz.
+
+## Sektörel söyleşiler
+
+Alanında çalışan mühendislerle yürüttüğümüz "Mühendis Olmak" serisi:
+
+- TUSAŞ'ta Mühendis Olmak
+- ASELSAN'da Mühendis Olmak
+- Turkcell'de Mühendis Olmak
+- NASA'da Mühendis Olmak
+- CERN'de Mühendis Olmak
+
+## Organizasyon ve çalıştaylar
+
+- NASA Space Apps Challenge — organizasyon ortaklığı
+- Turkish Technic Mühendislik Çalıştayı
+- BEBKA – MEB – BTÜ Çalıştayı
+- BEBKA TEKNOFEST eğitmenliği
+- BTUCAD Kariyer Günleri
+- Elektrikli ve Otonom Teknolojiler Konferansı
+- Atak Helikopteri ve TUSAŞ'ta Kişisel Gelişim
+- Türkiye İnovasyon Haftası
+- İstanbul İnovasyon Etkinliği
+- Bursa Teknoloji Merkezi Şenliği
+- Gençlik Haftası Model Uçak Etkinliği
+- Future Medicine Semineri

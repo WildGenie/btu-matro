@@ -3,7 +3,7 @@ title: Ortaokul ve Lise Mentörlüğü
 type: Eğitim
 date: 2024-01-01
 endDate: ""
-order: 5
+order: 6
 image: ""
 stats: []
 summary: "Ortaokul ve lise düzeyindeki öğrencilere teknoloji mentörlüğü sağlayarak yeni nesli erken yaşta mühendislikle tanıştırıyoruz."

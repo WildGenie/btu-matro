@@ -10,8 +10,10 @@ focus:
   - Nesnelerin interneti (IoT)
   - Dijital ikiz (digital twin)
 achievements:
+  - "TEKNOFEST 2025 PUSULA Sanayide Dijital Teknolojiler — Türkiye 8.si"
+  - "TEKNOFEST 2024 Sanayide Dijital Teknolojiler — Türkiye Finalisti"
   - "TEKNOFEST 2021 Sanayide Dijital Teknolojiler — Türkiye 3.sü"
-summary: "Endüstri 4.0, IoT ve dijital ikiz uygulamalarıyla üretim süreçlerini dijitalleştiren takımımız."
+summary: "2021'de Türkiye 3.sü, 2025'te Türkiye 8.si olan; Endüstri 4.0, IoT ve dijital ikiz uygulamalarıyla üretim süreçlerini dijitalleştiren takımımız."
 ---
 
 Sanayide Dijital Teknolojiler takımı, üretim hatlarının dijitalleşmesine yönelik uygulamalar geliştirir.
@@ -24,4 +26,4 @@ Sanayide Dijital Teknolojiler takımı, üretim hatlarının dijitalleşmesine y
 
 ## Başarı
 
-TEKNOFEST 2021 Sanayide Dijital Teknolojiler kategorisinde **Türkiye 3.sü** olmuş, sonraki yıllarda da Türkiye finalistlikleri elde etmiştir.
+Takım, TEKNOFEST 2021 Sanayide Dijital Teknolojiler kategorisinde **Türkiye 3.sü**, 2025 yılında **Türkiye 8.si** olmuş; 2024 yılında da finalde yer almıştır.

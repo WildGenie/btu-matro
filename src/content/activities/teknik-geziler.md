@@ -6,9 +6,9 @@ endDate: ""
 order: 2
 image: ""
 stats:
-  - label: Kurum
-    value: "11+"
-summary: "TUSAŞ, TOGG, ASELSAN, TEI, TÜBİTAK SAGE ve daha fazlasına düzenlediğimiz vizyon gezileriyle üyelerimizi sanayi ile buluşturuyoruz."
+  - label: Ziyaret Edilen Kurum
+    value: "13+"
+summary: "TUSAŞ, TOGG, Toyota, ASELSAN, TEI, TÜBİTAK SAGE ve daha fazlasına düzenlediğimiz vizyon gezileriyle üyelerimizi sanayi ile buluşturuyoruz."
 ---
 
 Üyelerimizin mühendislik pratiğini sahada görmesi için Türkiye'nin önde gelen teknoloji ve üretim kuruluşlarına düzenli teknik geziler düzenliyoruz.
@@ -21,8 +21,12 @@ summary: "TUSAŞ, TOGG, ASELSAN, TEI, TÜBİTAK SAGE ve daha fazlasına düzenle
 - TÜBİTAK SAGE
 - TÜBİTAK MAM
 - TEI (TUSAŞ Motor Sanayii)
+- Toyota
 - ASELSAN
 - Ford Otosan
+- Borusan Mannesmann
 - Durmazlar
 - Ermetal
+- HKTM (Hidropar Hareket Kontrol Teknolojileri Merkezi)
+- Alp Havacılık
 - SAHA EXPO

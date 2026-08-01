@@ -1,6 +1,6 @@
 ---
-title: SÜRÜ İHA
-subtitle: Sürü İnsansız Hava Aracı Proje Grubu
+title: MATRİS
+subtitle: Sürü İnsansız Hava Aracı
 category: Havacılık
 status: Aktif
 order: 10
@@ -10,11 +10,11 @@ focus:
   - Çoklu araç koordinasyonu
   - Görev dağıtım algoritmaları
 achievements:
-  - "HAVELSAN Sürü İHA Yarışması 2024 — Türkiye 9.su"
-summary: "Birden fazla hava aracının koordineli otonom uçuşu üzerine çalışan, HAVELSAN Sürü İHA'da Türkiye 9.su olan proje grubumuz."
+  - "TEKNOFEST 2024 HAVELSAN Sürü İHA — Türkiye 9.su ve Türkiye Finalisti"
+summary: "Birden fazla hava aracının koordineli otonom uçuşu üzerine çalışan, TEKNOFEST HAVELSAN Sürü İHA yarışmasında Türkiye 9.su olan takımımız."
 ---
 
-Sürü İHA proje grubu, birden fazla insansız hava aracının merkezi ve dağıtık mimarilerle koordineli hareket etmesi üzerine çalışır.
+MATRİS takımı, birden fazla insansız hava aracının merkezi ve dağıtık mimarilerle koordineli hareket etmesi üzerine çalışır.
 
 ## Teknik odak
 
@@ -24,4 +24,4 @@ Sürü İHA proje grubu, birden fazla insansız hava aracının merkezi ve dağ�
 
 ## Başarı
 
-**HAVELSAN Sürü İHA Yarışması 2024**'te Türkiye 9.su olmuştur.
+**TEKNOFEST 2024 HAVELSAN Sürü İHA Yarışması**'nda Türkiye 9.su olarak finalde yer almıştır.

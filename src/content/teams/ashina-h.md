@@ -1,16 +1,17 @@
 ---
-title: ASHİNA-H
-subtitle: Hava Savunma Sistemleri
+title: GÖKSAV
+subtitle: Hava Savunma Sistemleri (ASHİNA-H)
 category: Savunma
-status: Yeni Takım
+status: Aktif
 order: 2
 image: ""
 focus:
   - Hava savunma sistem entegrasyonu
   - Radar ve sensör takibi
   - Bertaraf mekanizmaları
-achievements: []
-summary: "Göktürk kağanlığının kurucu soyu ASHİNA ile \"Hava Savunma\" kavramını birleştiren, TEKNOFEST Hava Savunma Sistemleri Yarışması'na hazırlanan genç takımımız."
+achievements:
+  - "TEKNOFEST 2025 ASELSAN Hava Savunma Sistemleri — Rapor 3.sü"
+summary: "TEKNOFEST 2025 Hava Savunma Sistemleri yarışmasında rapor aşamasında Türkiye 3.sü olan, ASHİNA kökenlerinden gelen hava savunma takımımız."
 ---
 
 Takımın adı, Göktürk Kağanlığı'nın kurucu Türk soyu olan **ASHİNA** ismi ile **"Hava Savunma"** kavramının birleşiminden gelmektedir.
@@ -21,4 +22,8 @@ Takımın adı, Göktürk Kağanlığı'nın kurucu Türk soyu olan **ASHİNA** 
 
 ## Çalışma alanları
 
-Hava savunma sistemlerinde tespit, teşhis, takip ve bertaraf zincirinin her halkasında çalışmalar yürütülmekte; takım **TEKNOFEST Hava Savunma Sistemleri Yarışması**'na hazırlanmaktadır.
+Hava savunma sistemlerinde tespit, teşhis, takip ve bertaraf zincirinin her halkasında çalışmalar yürütülmektedir.
+
+## Başarı
+
+Takım, **TEKNOFEST 2025 ASELSAN Hava Savunma Sistemleri Yarışması**'nda rapor değerlendirmesinde **Türkiye 3.sü** olmuştur.

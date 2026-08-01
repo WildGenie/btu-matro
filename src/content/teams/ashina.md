@@ -15,10 +15,11 @@ achievements:
   - "TEKNOFEST 2023 İnsansız Hava Araçları — En İyi Performans Ödülü"
   - "TEKNOFEST 2022 İnsansız Hava Araçları — Türkiye 4.sü"
   - "TEKNOFEST 2021 İnsansız Hava Araçları — Türkiye 3.sü"
+  - "Future Flight Design (FFD'13) — Dünya 2.si (LAGARİ)"
 summary: "\"Tamamen Otonom; Havadan Tespit, Karadan İmha\" senaryosunu hayata geçiren, kendi motorunu ve atış birimini üreten İHA takımımız."
 ---
 
-Adını Göktürk Kağanlığı'nın kurucu Türk soyundan alan ASHİNA, topluluğumuzun en köklü ve en geniş kapsamlı proje takımıdır.
+Adını Göktürk Kağanlığı'nın kurucu Türk soyundan alan ASHİNA, topluluğumuzun en köklü ve en geniş kapsamlı proje takımıdır. **LAGARİ**, **FIRAT** ve **YELKOVAN** alt takımlarıyla farklı İHA kategorilerinde yarışmaktadır.
 
 ## Ne yapıyoruz?
 

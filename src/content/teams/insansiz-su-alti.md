@@ -10,6 +10,8 @@ focus:
   - Sualtı görüntü işleme
   - Sızdırmazlık ve basınç dayanımı
 achievements:
+  - "TEKNOFEST 2025 ASELSAN İnsansız Sualtı Sistemleri — Türkiye Finalisti"
+  - "TEKNOFEST 2024 ASELSAN İnsansız Sualtı Sistemleri — Türkiye Finalisti"
   - "Singapore SAUVC 2022 — Dünya Finalisti"
   - "TEKNOFEST 2021 ASELSAN İnsansız Su Altı Sistemleri — Türkiye Finalisti"
   - "TEKNOFEST 2019 ASELSAN İnsansız Su Altı Sistemleri — Türkiye 7.si"
@@ -23,7 +25,12 @@ summary: "Singapur SAUVC'de dünya finaline kalan, otonom sualtı araçları gel
 - Basınca dayanıklı gövde ve sızdırmazlık tasarımı
 - İtki sistemleri ve derinlik/yönelim kontrolü
 - Bulanık ortamda sualtı görüntü işleme ve görev otonomisi
+- Yerli otonom kontrol kartı, batarya sistemi ve gömülü yazılım
 
 ## Uluslararası deneyim
 
-Takım, **Singapur SAUVC (Singapore AUV Challenge) 2022**'de dünya finalisti olarak uluslararası arenada ülkemizi temsil etmiştir.
+Takım, **Singapur SAUVC (Singapore AUV Challenge) 2022**'de dünya finalisti olarak uluslararası arenada ülkemizi temsil etmiştir. TEKNOFEST ASELSAN İnsansız Sualtı Sistemleri yarışmasında 2024 ve 2025 yıllarında da finale kalmıştır.
+
+## Yerli çözümler
+
+Aracın otonom kontrol kartı, batarya sistemi ve kontrol yazılımı takım tarafından geliştirilmektedir.

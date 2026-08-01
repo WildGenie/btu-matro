@@ -3,7 +3,7 @@ title: Kardeş Okul Projesi
 type: Sosyal Sorumluluk
 date: 2024-01-01
 endDate: ""
-order: 4
+order: 5
 image: ""
 stats:
   - label: Destek

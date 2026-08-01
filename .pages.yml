@@ -129,6 +129,18 @@ content:
           - { name: title, label: Başlık, type: string, required: true }
           - { name: description, label: Açıklama, type: text }
 
+      - name: goals2026
+        label: 2026 Yarışma Hedefleri
+        type: object
+        fields:
+          - { name: title, label: Başlık, type: string }
+          - { name: description, label: Açıklama, type: text }
+          - name: items
+            label: Hedeflenen yarışmalar
+            type: string
+            list:
+              collapsible: true
+
   - name: achievements
     label: Başarılarımız
     type: file

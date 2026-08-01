@@ -1,6 +1,6 @@
 ---
-title: TİKA & İKA
-subtitle: Tarımsal İnsansız Kara Araçları
+title: MATROVER & LUNA
+subtitle: İnsansız ve Tarımsal İnsansız Kara Araçları
 category: Kara Araçları
 status: Aktif
 order: 7
@@ -10,16 +10,17 @@ focus:
   - Haritalama ve rota planlama
   - Ekim ve ilaçlama robotik kolları
 achievements:
-  - "TEKNOFEST 2025 İnsansız Kara Aracı — Türkiye 3.sü (MATROVER, 28 finalist takım arasından)"
+  - "TEKNOFEST 2025 ASELSAN İnsansız Kara Aracı — Türkiye 3.sü (MATROVER, 28 finalist takım arasından)"
+  - "TEKNOFEST 2025 ASELSAN İnsansız Kara Aracı — Türkiye Finalisti (LUNA)"
   - "TEKNOFEST 2024 Bilişim Vadisi TİKA — Türkiye 5.si (MATROBOT)"
   - "TEKNOFEST 2023 Bilişim Vadisi TİKA — Türkiye Finalisti (YAKLI)"
   - "TEKNOFEST 2022 TARNET TİKA — Türkiye 5.si (ROVER TEAM)"
   - "TEKNOFEST 2021 Bilişim Vadisi TİKA — Türkiye 5.si (MATROBOT)"
   - "TEKNOFEST 2019 Tarım Teknolojileri — Türkiye 3.sü (BTÜ İKA)"
-summary: "MATROVER, MATROBOT, YAKLI, BTÜ İKA, ROVER TEAM ve SEKSENOL alt takımlarıyla 2019'dan bu yana kesintisiz derece kazanan otonom kara aracı ailemiz."
+summary: "MATROVER, LUNA, MATROBOT, YAKLI, BTÜ İKA ve ROVER TEAM alt takımlarıyla 2019'dan bu yana kesintisiz derece kazanan otonom kara aracı ailemiz."
 ---
 
-Tarımsal İnsansız Kara Araçları çatısı altında, topluluğumuzun en uzun soluklu proje geleneği yürütülmektedir. 2019'dan bu yana her yıl TEKNOFEST'te derece kazanan bu çatı; **MATROVER**, **MATROBOT**, **YAKLI**, **BTÜ İKA**, **ROVER TEAM** ve **SEKSENOL** alt takımlarını barındırır.
+Tarımsal İnsansız Kara Araçları çatısı altında, topluluğumuzun en uzun soluklu proje geleneği yürütülmektedir. 2019'dan bu yana her yıl TEKNOFEST'te derece kazanan bu çatı; **MATROVER**, **LUNA**, **MATROBOT**, **YAKLI**, **BTÜ İKA**, **ROVER TEAM** ve **SEKSENOL** alt takımlarını barındırır.
 
 ## Teknik odak
 
@@ -30,4 +31,4 @@ Tarımsal İnsansız Kara Araçları çatısı altında, topluluğumuzun en uzun
 
 ## Başarı geçmişi
 
-Takımlarımız 2019'dan itibaren Tarım Teknolojileri, Tarımsal İnsansız Kara Aracı ve İnsansız Kara Aracı kategorilerinde **altı ayrı derece** kazanmıştır. En güncel sonuç, MATROVER ekibinin TEKNOFEST 2025 İnsansız Kara Aracı Yarışması'nda elde ettiği Türkiye üçüncülüğüdür.
+Takımlarımız 2019'dan itibaren Tarım Teknolojileri, Tarımsal İnsansız Kara Aracı ve İnsansız Kara Aracı kategorilerinde **altı ayrı derece** kazanmıştır. En güncel sonuç, TEKNOFEST 2025 ASELSAN İnsansız Kara Aracı Yarışması'nda MATROVER ekibinin Türkiye üçüncülüğü ve LUNA ekibinin finalistliğidir.
