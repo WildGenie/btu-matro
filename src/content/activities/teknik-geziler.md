@@ -4,7 +4,7 @@ type: Teknik Gezi
 date: 2024-01-01
 endDate: ""
 order: 2
-image: ""
+image: "/media/gezi-togg.jpg"
 stats:
   - label: Ziyaret Edilen Kurum
     value: "13+"

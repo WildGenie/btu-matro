@@ -4,7 +4,7 @@ subtitle: Hava Savunma Sistemleri (ASHİNA-H)
 category: Savunma
 status: Aktif
 order: 2
-image: ""
+image: "/media/takim-goksav.jpg"
 focus:
   - Hava savunma sistem entegrasyonu
   - Radar ve sensör takibi

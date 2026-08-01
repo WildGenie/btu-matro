@@ -4,7 +4,7 @@ type: Sosyal Sorumluluk
 date: 2024-01-01
 endDate: ""
 order: 5
-image: ""
+image: "/media/atolye-araclar.jpg"
 stats:
   - label: Destek
     value: "75.000+ TL"

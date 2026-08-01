@@ -4,7 +4,7 @@ type: Etkinlik
 date: 2025-12-06
 endDate: ""
 order: 3
-image: ""
+image: "/media/fuar-standi.jpg"
 stats:
   - label: Fuar
     value: "15+"

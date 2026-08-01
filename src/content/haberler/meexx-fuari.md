@@ -5,7 +5,7 @@ date: 2025-12-06
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/teknofest-standi.jpg"
 link: ""
 linkLabel: ""
 summary: "3-6 Aralık 2025'te Bursa Fuar Merkezi'nde düzenlenen MEEXX Makine ve Teknolojileri Fuarı'nda MATRO standıyla ziyaretçilerle buluştuk."

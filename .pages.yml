@@ -44,6 +44,10 @@ content:
             label: Tanıtım metni
             type: text
             required: true
+          - name: backgroundImage
+            label: Arka plan görseli
+            type: image
+            description: Giriş bölümünün arkasında soluk şekilde görünür. Boş bırakılırsa sadece ızgara deseni kalır.
           - name: primaryCta
             label: 1. Buton
             type: object

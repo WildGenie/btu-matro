@@ -4,7 +4,7 @@ subtitle: İnsansız ve Tarımsal İnsansız Kara Araçları
 category: Kara Araçları
 status: Aktif
 order: 7
-image: ""
+image: "/media/takim-matrover.jpg"
 focus:
   - Otonom arazi sürüşü
   - Haritalama ve rota planlama

@@ -4,7 +4,7 @@ type: Etkinlik
 date: 2025-01-01
 endDate: ""
 order: 4
-image: ""
+image: "/media/odul-toreni.jpg"
 stats: []
 summary: "Sektörel söyleşiler, kariyer günleri, hackathon organizasyonları ve teknoloji çalıştaylarıyla üyelerimizi alanında uzman isimlerle buluşturuyoruz."
 ---

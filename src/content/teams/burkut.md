@@ -4,7 +4,7 @@ subtitle: Uçan Araba Simülasyonu
 category: Simülasyon & Otonomi
 status: Aktif
 order: 4
-image: ""
+image: "/media/renault-twizy.jpg"
 focus:
   - Otonom uçuş simülasyonları
   - Kalman filtresi tabanlı sensör füzyonu

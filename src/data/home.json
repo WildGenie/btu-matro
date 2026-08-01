@@ -14,7 +14,8 @@
     "tertiaryCta": {
       "label": "Sponsor Olun",
       "href": "/sponsorluk"
-    }
+    },
+    "backgroundImage": "/media/atolye-araclar.jpg"
   },
   "stats": [
     {

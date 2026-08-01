@@ -4,7 +4,7 @@ subtitle: İnsansız Deniz Aracı
 category: Deniz Araçları
 status: Aktif
 order: 9
-image: ""
+image: "/media/takim-ida.jpg"
 focus:
   - Deniz üstü otonomi
   - Rotalandırma ve seyir algoritmaları

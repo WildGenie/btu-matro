@@ -73,11 +73,11 @@ const others = (await getCollection('teams'))
 
     {
       cover && (
-        <div class="container-matro -mt-2">
+        <div class="container-matro">
           <img
             src={cover}
             alt={`${team.data.title} takımı`}
-            class="mt-10 aspect-[21/9] w-full rounded-2xl border border-white/10 object-cover"
+            class="mx-auto mt-10 aspect-[16/9] w-full max-w-3xl rounded-2xl border border-white/10 object-cover"
             loading="lazy"
             decoding="async"
           />

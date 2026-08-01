@@ -2,19 +2,84 @@
   "intro": "Atölyeden yarışma sahasına, teknik gezilerden ödül törenlerine MATRO'dan kareler.",
   "images": [
     {
-      "image": "",
-      "caption": "Atölye çalışmalarımızdan bir kare",
+      "image": "/media/atolye-araclar.jpg",
+      "caption": "Atölyemizde sergilenen proje araçlarımız",
       "category": "Atölye"
     },
     {
-      "image": "",
-      "caption": "TEKNOFEST yarışma alanı",
+      "image": "/media/takim-matrover.jpg",
+      "caption": "MATROVER ekibimiz TEKNOFEST yarışma alanında",
       "category": "Yarışma"
     },
     {
-      "image": "",
-      "caption": "Teknik gezi — TUSAŞ",
+      "image": "/media/ika-saha-testi.jpg",
+      "caption": "İnsansız kara aracımızın saha testleri",
+      "category": "Yarışma"
+    },
+    {
+      "image": "/media/takim-iss-sualti-araci.jpg",
+      "caption": "İnsansız sualtı aracımız havuz testinde",
+      "category": "Yarışma"
+    },
+    {
+      "image": "/media/takim-ida.jpg",
+      "caption": "İnsansız deniz aracı ekibimiz yarışma alanında",
+      "category": "Yarışma"
+    },
+    {
+      "image": "/media/takim-ashina.jpg",
+      "caption": "ASHİNA ekibimiz insansız hava aracıyla",
+      "category": "Yarışma"
+    },
+    {
+      "image": "/media/takim-goksav.jpg",
+      "caption": "GÖKSAV hava savunma sistemi prototipi",
+      "category": "Atölye"
+    },
+    {
+      "image": "/media/takim-matris-iha.jpg",
+      "caption": "MATRİS sürü İHA sistemimiz",
+      "category": "Atölye"
+    },
+    {
+      "image": "/media/odul-girisimcilik.jpg",
+      "caption": "TEKNOFEST Girişimcilik Yarışması Türkiye 1.liği ödül töreni",
+      "category": "Yarışma"
+    },
+    {
+      "image": "/media/odul-toreni.jpg",
+      "caption": "Ödül töreninden bir kare",
+      "category": "Yarışma"
+    },
+    {
+      "image": "/media/gezi-togg.jpg",
+      "caption": "TOGG teknik gezimiz",
       "category": "Teknik Gezi"
+    },
+    {
+      "image": "/media/gezi-turkish-technic.jpg",
+      "caption": "Turkish Technic teknik gezimiz",
+      "category": "Teknik Gezi"
+    },
+    {
+      "image": "/media/teknofest-standi.jpg",
+      "caption": "TEKNOFEST alanındaki standımız",
+      "category": "Etkinlik"
+    },
+    {
+      "image": "/media/fuar-standi.jpg",
+      "caption": "Fuar standımızda ziyaretçilerimizle",
+      "category": "Etkinlik"
+    },
+    {
+      "image": "/media/ekip-kampus.jpg",
+      "caption": "Kampüste topluluk üyelerimiz",
+      "category": "Etkinlik"
+    },
+    {
+      "image": "/media/renault-twizy.jpg",
+      "caption": "Renault Twizy Contest için geliştirdiğimiz araç",
+      "category": "Yarışma"
     }
   ]
 }

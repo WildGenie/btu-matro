@@ -9,7 +9,7 @@ import CtaBand from '../components/CtaBand.astro';
 import home from '../data/home.json';
 import achievements from '../data/achievements.json';
 import sponsors from '../data/sponsors.json';
-import { url, degreeTone, publishedNews } from '../lib/utils';
+import { url, media, degreeTone, publishedNews } from '../lib/utils';
 
 const teams = (await getCollection('teams'))
   .sort((a, b) => a.data.order - b.data.order)
@@ -22,11 +22,27 @@ const announcements = publishedNews(await getCollection('haberler'), { onlyPinne
 // Son haberler bölümü
 const latestNews = publishedNews(await getCollection('haberler')).slice(0, 3);
 const dateFmt = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+const heroBg = media(home.hero.backgroundImage);
 ---
 
 <BaseLayout>
   <!-- ============ HERO ============ -->
   <section class="relative overflow-hidden">
+    {
+      heroBg && (
+        <div class="absolute inset-0" aria-hidden="true">
+          <img
+            src={heroBg}
+            alt=""
+            class="h-full w-full object-cover opacity-[0.18]"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/85 to-ink-950/40" />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-ink-950/80" />
+        </div>
+      )
+    }
     <div class="grid-bg absolute inset-0" aria-hidden="true"></div>
     <div
       class="absolute -top-52 left-1/2 h-[34rem] w-[60rem] -translate-x-1/2 rounded-full bg-volt-500/14 blur-[130px]"

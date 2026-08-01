@@ -5,7 +5,7 @@ date: 2026-06-07
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/fuar-ziyaret.jpg"
 link: ""
 linkLabel: ""
 summary: "Turkish Technic mühendislerinin sahadan getirdiği gerçek problemleri ekipler hâlinde analiz ettik ve çözüm önerilerimizi sunduk."

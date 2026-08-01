@@ -4,7 +4,7 @@ subtitle: Endüstri 4.0 ve Dijital İkiz
 category: Dijital Teknolojiler
 status: Aktif
 order: 11
-image: ""
+image: "/media/takim-sanayide-dijital.jpg"
 focus:
   - Endüstri 4.0 uygulamaları
   - Nesnelerin interneti (IoT)

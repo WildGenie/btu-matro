@@ -5,7 +5,7 @@ date: 2025-09-21
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/ika-yarisma-alani.jpg"
 link: ""
 linkLabel: ""
 summary: "İnsansız Kara Aracı yarışmasında yer alan MATROVER ekibimiz, TEKNOFEST 2025'te standımızı ziyaret eden Selçuk Bayraktar ile bir araya geldi."

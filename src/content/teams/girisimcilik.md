@@ -4,7 +4,7 @@ subtitle: Ürünleşme ve Teknoloji Girişimciliği
 category: Girişimcilik
 status: Aktif
 order: 12
-image: ""
+image: "/media/odul-girisimcilik.jpg"
 focus:
   - Teknoloji girişimciliği
   - Ürünleşme ve iş modeli tasarımı

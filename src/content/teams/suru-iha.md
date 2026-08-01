@@ -4,7 +4,7 @@ subtitle: Sürü İnsansız Hava Aracı
 category: Havacılık
 status: Aktif
 order: 10
-image: ""
+image: "/media/takim-matris-iha.jpg"
 focus:
   - Sürü halinde otonom uçuş
   - Çoklu araç koordinasyonu

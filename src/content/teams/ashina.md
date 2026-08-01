@@ -4,7 +4,7 @@ subtitle: İnsansız Hava Araçları Sistemleri
 category: Havacılık
 status: Aktif
 order: 1
-image: ""
+image: "/media/takim-ashina.jpg"
 focus:
   - Otonom İHA sistemleri
   - Derin öğrenme tabanlı görüntü işleme

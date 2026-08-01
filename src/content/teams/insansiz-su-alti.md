@@ -4,7 +4,7 @@ subtitle: İnsansız Su Altı Sistemleri
 category: Sualtı Sistemleri
 status: Aktif
 order: 8
-image: ""
+image: "/media/takim-iss-sualti-araci.jpg"
 focus:
   - Otonom sualtı aracı (AUV) tasarımı
   - Sualtı görüntü işleme
