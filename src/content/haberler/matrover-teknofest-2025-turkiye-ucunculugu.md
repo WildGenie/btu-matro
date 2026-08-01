@@ -5,7 +5,7 @@ date: 2025-09-22
 expiresOn: ""
 pinned: false
 draft: false
-image: "/media/ika-saha-testi.jpg"
+image: "/media/haber-matrover-3luk.jpg"
 link: ""
 linkLabel: ""
 summary: "Finale kalan 28 takım arasında gösterdiğimiz performansla TEKNOFEST 2025 İnsansız Kara Aracı Yarışması'nda Türkiye üçüncülüğü elde ettik."

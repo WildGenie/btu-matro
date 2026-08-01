@@ -5,7 +5,7 @@ date: 2026-09-15
 expiresOn: ""
 pinned: true
 draft: true
-image: ""
+image: "/media/haber-uye-alimi.jpg"
 link: ""
 linkLabel: "Başvuru formu"
 summary: "Topluluğumuzun gelişimine yön veren, sorumluluk almayı seven ve üretken bir ekibin parçası olmak istiyorsan seni de aramızda görmek isteriz."

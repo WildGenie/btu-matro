@@ -5,7 +5,7 @@ date: 2025-08-27
 expiresOn: ""
 pinned: false
 draft: false
-image: "/media/takim-luna.jpg"
+image: "/media/haber-luna-lodos.jpg"
 link: ""
 linkLabel: ""
 summary: "Aylar süren hazırlık sürecinin ardından LUNA ve LODOS ekiplerimiz TEKNOFEST 2025 yarışmaları için yarışma alanına hareket etti."

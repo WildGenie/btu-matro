@@ -5,7 +5,7 @@ date: 2025-08-24
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/haber-biyolift.jpg"
 link: ""
 linkLabel: ""
 summary: "Biyolift Mekatronik A.Ş., topluluğumuzun Altın Sponsoru olarak projelerimize destek vermeye başladı."
