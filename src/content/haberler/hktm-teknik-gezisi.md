@@ -5,7 +5,7 @@ date: 2026-03-20
 expiresOn: ""
 pinned: false
 draft: false
-image: "/media/gezi-turkish-technic.jpg"
+image: "/media/haber-hktm-gezisi.jpg"
 link: ""
 linkLabel: ""
 summary: "Endüstriyel otomasyon ve ileri mühendislik uygulamalarını yerinde görmek için Hidropar Hareket Kontrol Teknolojileri Merkezi'ni ziyaret ettik."

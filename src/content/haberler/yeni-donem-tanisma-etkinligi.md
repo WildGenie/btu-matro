@@ -5,7 +5,7 @@ date: 2025-10-20
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/haber-tanisma-etkinligi.jpg"
 link: ""
 linkLabel: ""
 summary: "Yeni üyelerimizle tanıştığımız etkinlikte topluluğun vizyonunu ve projelerini paylaştık, TEKNOFEST hazırlıklarının yürütüldüğü atölyemizi gezdik."

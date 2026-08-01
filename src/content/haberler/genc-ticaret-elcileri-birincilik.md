@@ -5,7 +5,7 @@ date: 2026-05-17
 expiresOn: ""
 pinned: false
 draft: false
-image: "/media/odul-toreni.jpg"
+image: "/media/haber-genc-ticaret.jpg"
 link: ""
 linkLabel: ""
 summary: "Topluluk üyemiz İbrahim İdris, farklı ülkelerden gençleri buluşturan Genç Ticaret Elçileri Yarışması'nda birinci oldu."

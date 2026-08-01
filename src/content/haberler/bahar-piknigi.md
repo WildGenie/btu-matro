@@ -5,7 +5,7 @@ date: 2026-05-20
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/haber-bahar-piknigi.jpg"
 link: ""
 linkLabel: ""
 summary: "Yoğun yarışma temposuna kısa bir ara verip yönetim kurulumuz ve takım arkadaşlarımızla bir araya geldiğimiz piknik etkinliği düzenledik."

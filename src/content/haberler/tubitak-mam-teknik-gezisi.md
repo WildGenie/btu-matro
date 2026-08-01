@@ -5,7 +5,7 @@ date: 2025-12-09
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/haber-tubitak-mam.jpg"
 link: ""
 linkLabel: ""
 summary: "TÜBİTAK Marmara Araştırma Merkezi'ne düzenlediğimiz teknik gezide Ar-Ge süreçlerini ve laboratuvar altyapısını yerinde inceledik."

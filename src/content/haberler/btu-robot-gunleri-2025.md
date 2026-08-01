@@ -5,7 +5,7 @@ date: 2025-11-25
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/haber-btu-robot-gunleri.jpg"
 link: ""
 linkLabel: ""
 summary: "ROTASAM ve Mekatronik Mühendisliği Bölümü tarafından bu yıl ikincisi düzenlenen BTÜ Robot Günleri'nde projelerimizi tanıttık ve MATLAB eğitimlerine katıldık."

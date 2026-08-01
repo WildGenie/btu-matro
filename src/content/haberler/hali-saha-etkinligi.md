@@ -5,7 +5,7 @@ date: 2026-04-20
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/haber-hali-saha.jpg"
 link: ""
 linkLabel: ""
 summary: "Yoğun tempoya kısa bir ara vererek düzenlediğimiz halı saha etkinliğinde takım ruhunu saha dışında da yaşadık."

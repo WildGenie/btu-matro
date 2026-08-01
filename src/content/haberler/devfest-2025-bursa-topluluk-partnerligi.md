@@ -5,7 +5,7 @@ date: 2025-11-20
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/haber-devfest-bursa.jpg"
 link: ""
 linkLabel: ""
 summary: "Google Developer Groups Bursa tarafından düzenlenen DevFest'25 Bursa etkinliğinde topluluk partneri olarak yer aldık."

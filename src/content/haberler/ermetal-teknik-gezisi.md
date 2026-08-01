@@ -5,7 +5,7 @@ date: 2025-12-20
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/haber-ermetal-gezisi.jpg"
 link: ""
 linkLabel: ""
 summary: "Mekatronik Mühendisleri Derneği ile birlikte gerçekleştirdiğimiz gezide üretim süreçlerini ve sektörün işleyişini yerinde inceledik."

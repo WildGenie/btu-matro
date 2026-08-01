@@ -80,6 +80,36 @@
       "image": "/media/renault-twizy.jpg",
       "caption": "Renault Twizy Contest için geliştirdiğimiz araç",
       "category": "Yarışma"
+    },
+    {
+      "image": "/media/galeri-meexx-stand.jpg",
+      "caption": "MEEXX Makine ve Teknolojileri Fuarı'ndaki standımız",
+      "category": "Etkinlik"
+    },
+    {
+      "image": "/media/galeri-tanisma-kahvaltisi.jpg",
+      "caption": "Yeni dönem tanışma kahvaltımız",
+      "category": "Etkinlik"
+    },
+    {
+      "image": "/media/galeri-2025-yil-ozeti.jpg",
+      "caption": "2025 yılından kareler",
+      "category": "Etkinlik"
+    },
+    {
+      "image": "/media/haber-btu-robot-gunleri.jpg",
+      "caption": "BTÜ Robot Günleri 2025'te standımız",
+      "category": "Etkinlik"
+    },
+    {
+      "image": "/media/haber-hali-saha.jpg",
+      "caption": "Halı saha etkinliğimiz",
+      "category": "Etkinlik"
+    },
+    {
+      "image": "/media/haber-bahar-piknigi.jpg",
+      "caption": "Bahar pikniğimiz",
+      "category": "Etkinlik"
     }
   ]
 }

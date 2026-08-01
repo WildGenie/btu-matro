@@ -5,7 +5,7 @@ date: 2025-12-15
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/haber-teknofest-bilgilendirme.jpg"
 link: ""
 linkLabel: ""
 summary: "T3 Vakfı Yönetim Kurulu Başkanı Dr. Elvan Kuzucu Hıdır'ın jüri başkanlığında gerçekleşen etkinlikte TEKNOFEST'in başvurudan finallere uzanan tüm aşamaları ele alındı."

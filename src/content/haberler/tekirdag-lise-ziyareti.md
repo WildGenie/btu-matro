@@ -5,7 +5,7 @@ date: 2025-11-01
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/haber-tekirdag-ziyaret.jpg"
 link: ""
 linkLabel: ""
 summary: "Lise öğrencilerine projelerimizi ve teknik süreçlerimizi tanıttık; mühendislik ve üretim alanlarına dair sohbetler gerçekleştirdik."

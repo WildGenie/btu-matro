@@ -5,7 +5,7 @@ date: 2025-11-18
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/haber-atolye-egitimi.jpg"
 link: ""
 linkLabel: ""
 summary: "Yeni dönem TEKNOFEST takımlarımıza topluluk kültürümüzü, proje yönetimi yaklaşımımızı ve atölye kurallarımızı aktardığımız bir eğitim düzenledik."

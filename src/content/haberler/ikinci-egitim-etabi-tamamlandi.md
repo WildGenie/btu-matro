@@ -5,7 +5,7 @@ date: 2026-03-12
 expiresOn: ""
 pinned: false
 draft: false
-image: ""
+image: "/media/haber-ikinci-egitim.jpg"
 link: ""
 linkLabel: ""
 summary: "Eğitim programımızın ikinci etabını tamamladık; ilk etapta atılan temel üzerine yeni konular eklendi."
