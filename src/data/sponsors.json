@@ -1,21 +1,21 @@
 {
-  "intro": "Projelerimizi hayata geçirmemizi mümkün kılan, geleceğin mühendislerine inanan tüm iş ortaklarımıza teşekkür ederiz.",
+  "intro": "Projelerimizi hayata geçirmemizi mümkün kılan, geleceğin mühendislerine inanan tüm iş ortaklarımıza teşekkür ederiz. Aşağıdaki liste 2025-2026 dönemini kapsar.",
   "note": "NOT: `tutar` alanı sitede GÖSTERİLMEZ; yalnızca topluluk içi kayıt amaçlıdır. Sitede sadece firma adı, paket ve destek türü görünür.",
   "current": [
     {
-      "name": "LUNA ROBOTICS",
-      "package": "Ana Sponsor",
-      "type": "Nakit + Hizmet + Malzeme",
-      "amount": "200.000 TL",
+      "name": "VATANJET",
+      "package": "Platin",
+      "type": "Hizmet",
+      "amount": "",
       "logo": "",
       "website": "",
       "logoKaynak": ""
     },
     {
-      "name": "TEKYAZ",
-      "package": "Platin",
-      "type": "Ürün (Yazılım Lisansı)",
-      "amount": "Yazılım Desteği",
+      "name": "LUNA ROBOTICS",
+      "package": "Altın",
+      "type": "Nakit + Hizmet + Malzeme",
+      "amount": "200.000 TL",
       "logo": "",
       "website": "",
       "logoKaynak": ""
@@ -39,15 +39,6 @@
       "logoKaynak": "https://drive.google.com/open?id=13nxZg42G5dII_ArTLMqT2Rknt3zNSjfm"
     },
     {
-      "name": "AKKUŞ ENERJİ",
-      "package": "Bronz",
-      "type": "Nakit",
-      "amount": "30.000 TL",
-      "logo": "",
-      "website": "",
-      "logoKaynak": "https://drive.google.com/open?id=1wU-UfYRyVCFe9qRozzhLKDOvs3GYROp_"
-    },
-    {
       "name": "İBRAŞ KAUÇUK",
       "package": "Bronz",
       "type": "Nakit",
@@ -55,6 +46,24 @@
       "logo": "",
       "website": "",
       "logoKaynak": "https://drive.google.com/open?id=1TeaI7RzBQ2CobahiHj20Q64sA8fnGI8e"
+    },
+    {
+      "name": "FINEMOLD",
+      "package": "Bronz",
+      "type": "Üretim / Kalıp",
+      "amount": "Hizmet Desteği",
+      "logo": "",
+      "website": "",
+      "logoKaynak": ""
+    },
+    {
+      "name": "AKKUŞ ENERJİ",
+      "package": "Bronz",
+      "type": "Nakit",
+      "amount": "30.000 TL",
+      "logo": "",
+      "website": "",
+      "logoKaynak": "https://drive.google.com/open?id=1wU-UfYRyVCFe9qRozzhLKDOvs3GYROp_"
     },
     {
       "name": "ÇAKIR DEPOLAMA LOJİSTİK",
@@ -84,10 +93,19 @@
       "logoKaynak": ""
     },
     {
-      "name": "FINEMOLD",
+      "name": "TSG SAC İŞLEME MERKEZİ",
       "package": "Bronz",
-      "type": "Üretim / Kalıp",
-      "amount": "Hizmet Desteği",
+      "type": "Hizmet",
+      "amount": "",
+      "logo": "",
+      "website": "",
+      "logoKaynak": ""
+    },
+    {
+      "name": "DR. TABLET",
+      "package": "Gönüllü",
+      "type": "Hizmet + Malzeme",
+      "amount": "20.000 TL altı",
       "logo": "",
       "website": "",
       "logoKaynak": ""
@@ -102,13 +120,13 @@
       "logoKaynak": "https://drive.google.com/open?id=1MsN7nSJq63b6SVqBQYM4tjVgTLrwWQW0"
     },
     {
-      "name": "GELECEK EVİMDE",
+      "name": "POCKETBOOK",
       "package": "Gönüllü",
-      "type": "Malzeme",
-      "amount": "10.000 TL",
+      "type": "Ürün",
+      "amount": "",
       "logo": "",
       "website": "",
-      "logoKaynak": "https://drive.google.com/open?id=1I7APxL0b3SiEGyH2BFr3A2dzM07_n-Dt"
+      "logoKaynak": ""
     },
     {
       "name": "OFF-EE",
@@ -118,18 +136,11 @@
       "logo": "",
       "website": "",
       "logoKaynak": "https://drive.google.com/open?id=1C9PTLFxh0wbsa3wwzis67y7k18IPyXlY"
-    },
-    {
-      "name": "DR. TABLET",
-      "package": "Gönüllü",
-      "type": "Hizmet + Malzeme",
-      "amount": "20.000 TL altı",
-      "logo": "",
-      "website": "",
-      "logoKaynak": ""
     }
   ],
   "past": [
+    "Gelecek Evimde",
+    "TEKYAZ",
     "Epsan",
     "ER Metal",
     "Aquapol",
@@ -137,5 +148,30 @@
     "A.VET",
     "YOSAB (Yenişehir Organize Sanayi Bölgesi)",
     "ARLIAKARE"
-  ]
+  ],
+  "graphics": {
+    "title": "2025-2026 sponsorlarımız",
+    "images": [
+      {
+        "image": "/media/sponsor-platin-vatanjet.jpg",
+        "caption": "Platin Sponsor"
+      },
+      {
+        "image": "/media/sponsor-altin.jpg",
+        "caption": "Altın Sponsorlar"
+      },
+      {
+        "image": "/media/sponsor-bronz.jpg",
+        "caption": "Bronz Sponsorlar"
+      },
+      {
+        "image": "/media/sponsor-bronz-tsg.jpg",
+        "caption": "Bronz Sponsor — TSG"
+      },
+      {
+        "image": "/media/sponsor-gonullu.jpg",
+        "caption": "Gönüllü Sponsorlar"
+      }
+    ]
+  }
 }

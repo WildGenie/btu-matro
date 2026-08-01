@@ -90,6 +90,32 @@ const mailto = `mailto:${site.contact.emails[0]}?subject=${encodeURIComponent('S
     </div>
   </Section>
 
+  <!-- Sponsor duyuru görselleri -->
+  {
+    sponsors.graphics?.images?.length > 0 && (
+      <Section eyebrow="Duyurular" title={sponsors.graphics.title} class="pt-0">
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {sponsors.graphics.images.map((g, i) => (
+            <figure class="card reveal overflow-hidden" data-delay={(i % 3) * 55}>
+              <img
+                src={media(g.image)!}
+                alt={g.caption}
+                loading="lazy"
+                decoding="async"
+                class="w-full"
+              />
+              {g.caption && (
+                <figcaption class="border-t border-white/8 px-4 py-3 font-mono text-[0.62rem] tracking-[0.15em] text-mist-500 uppercase">
+                  {g.caption}
+                </figcaption>
+              )}
+            </figure>
+          ))}
+        </div>
+      </Section>
+    )
+  }
+
   <!-- Mevcut sponsorlar -->
   <Section eyebrow="İş Ortaklarımız" title="Mevcut sponsorlarımız" description={sponsors.intro} class="pt-0">
     <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

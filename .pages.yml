@@ -426,6 +426,19 @@ content:
         type: string
         list:
           collapsible: true
+      - name: graphics
+        label: Sponsor Duyuru Görselleri
+        type: object
+        fields:
+          - { name: title, label: Bölüm başlığı, type: string }
+          - name: images
+            label: Görseller
+            type: object
+            list:
+              collapsible: true
+            fields:
+              - { name: image, label: Görsel, type: image, required: true }
+              - { name: caption, label: Alt yazı, type: string }
 
   - name: sponsorship
     label: Sponsorluk Paketleri
